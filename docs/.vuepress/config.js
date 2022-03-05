@@ -13,6 +13,9 @@ function showIfDevMode (children, fallback = []) {
 }
 
 module.exports = {
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png' }]
+  ],
   plugins: [
     ['@vuepress/search', {
       searchMaxSuggestions: 10
@@ -29,7 +32,12 @@ module.exports = {
     },
   },
   themeConfig: {
+    repo: 'https://github.com/EmilyRosina/gsf-docs',
+    docsBranch: 'master',
+    docsDir: 'docs',
+    editLinkPattern: ':repo/edit/:branch/:path',
     logo: '/logo.png',
+    contributors: false,
     navbar: [
       {
         text: 'Links',
