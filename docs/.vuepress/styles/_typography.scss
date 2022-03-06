@@ -1,0 +1,15 @@
+a.external-link.external-link.external-link {
+  color: $blue;
+
+  &:hover {
+    color: lighten($blue, 12%);
+  }
+}
+
+h1 .header-anchor {
+  color: var(--c-text);
+}
+
+h2, h3 {
+  color: $purple;
+}

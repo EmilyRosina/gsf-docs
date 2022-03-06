@@ -1,1 +1,1 @@
-# 🛠 Share filters
+# Share filters

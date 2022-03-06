@@ -1,0 +1,109 @@
+.navbar,
+.sidebar {
+  border: none;
+}
+
+// ---[ SIDEBAR ]--- //
+.sidebar {
+  .navbar-item:nth-child(2) {
+    display: none;
+  }
+}
+
+.sidebar-item {
+  &.sidebar-heading.active {
+    $header-bg-light: darken($blue-lighter, 6%);
+    background: $header-bg-light;
+    background: linear-gradient(
+      90deg, $header-bg-light 0%,
+      transparentize($header-bg-light, 1) 100%
+    );
+
+    html.dark & {
+      $header-bg-dark: darken($dark-blue, 6%);
+      background: $header-bg-dark;
+      background: linear-gradient(
+        90deg, $header-bg-dark 0%,
+        transparentize($header-bg-dark, 1) 100%
+      );
+    }
+  }
+
+  &:not(.sidebar-heading) {
+    color: $pink;
+
+    &:not(.router-link-active):hover {
+      color: $pink;
+    }
+
+    &.router-link-active + .sidebar-item-children & {
+      color: $purple;
+    }
+
+    &:hover {
+      background: darken($blue-lighter, 3%);
+    }
+
+    html.dark & {
+      &:hover {
+        background: darken($dark-blue, 3%);
+      }
+    }
+
+    &.active[aria-current="page"] {
+      color: var(--c-text);
+    }
+
+    &[href*="/wip/"] {
+      font-style: italic;
+      opacity: 0.5;
+
+      &::before {
+        content: '🛠 WIP ::';
+        font-style: normal;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// ---[ NAVBAR ]--- //
+.navbar {
+  &-item:nth-child(2) {
+    display: none;
+  }
+}
+
+.search-box {
+  order: 2;
+}
+.toggle-dark-button {
+  order: 3;
+  margin-left: 0.5em;
+}
+
+.search-box[role="search"] {
+  input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 720px) {
+  .search-box[role="search"] {
+    input {
+      width: 32px;
+
+      &:focus {
+        width: 300px;
+      }
+    }
+  }
+}
+
+// ---[ PAGE NAV ]--- //
+.page-nav {
+  .next a,
+  .prev a {
+    color: $pink;
+  }
+}

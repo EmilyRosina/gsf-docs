@@ -1,1 +1,1 @@
-# 🛠 Filters Menu
+# Filters Menu
