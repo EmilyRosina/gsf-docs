@@ -1,12 +1,11 @@
 # Dates Menu
 
-1. Click the **Dates** button, next to the other github filter/sort buttons.
-2. Choose a date type to add to your query and click the **Add** button.
-
 ### Query a date
 
-1. Click the **calendar** icon in the **On** input, to pick the date you wish to apply.
-2. Click **Apply**
+1. Click the **Dates** button, next to the other github filter/sort buttons.
+2. Choose a date type to add to your query and click the **Add** button.
+3. Click the **calendar** icon in the **On** input, to pick the date you wish to apply.
+4. Click **Apply**
 
 ### Query between 2 dates
 
