@@ -1,3 +1,34 @@
-:root {
+@import 'lightMode';
+@import 'darkMode';
+// https://v2.vuepress.vuejs.org/reference/default-theme/styles.html#palette-file
 
+
+:root {
+  //---[ TYPOGRAPHY VARS ]---//
+  // --font-family:
+  //   -apple-system,
+  //   BlinkMacSystemFont,
+  //   'Segoe UI',
+  //   Roboto,
+  //   Oxygen,
+  //   Ubuntu,
+  //   Cantarell,
+  //   'Fira Sans',
+  //   'Droid Sans',
+  //   'Helvetica Neue',
+  //   sans-serif;
+  // --font-family-code:
+  //   Consolas, Monaco,
+  //   'Andale Mono',
+  //   'Ubuntu Mono',
+  //   monospace;
+
+  //---[ LAYOUT VARS ]---//
+  // --navbar-height: 3.6rem;
+  // --navbar-padding-v: 0.7rem;
+  // --navbar-padding-h: 1.5rem;
+  // --sidebar-width: 20rem;
+  // --sidebar-width-mobile: calc(var(--sidebar-width) * 0.82);
+  // --content-width: 740px;
+  // --homepage-width: 960px;
 }
