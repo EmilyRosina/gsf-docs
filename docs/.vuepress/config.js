@@ -1,5 +1,6 @@
 const url = {
-  donate: 'https://www.buymeacoffee.com/auroraskye',
+  donateKOFI: 'https://ko-fi.com/auroraskye',
+  donateBMAC: 'https://www.buymeacoffee.com/auroraskye',
   feedback: 'https://github.com/EmilyRosina/gsf.docs/discussions',
   storePage: 'https://chrome.google.com/webstore/detail/github-saved-filters/pmkbippobcmchabghaeonfbbcncjhmjm',
   roadmap: 'https://portal.productboard.com/4uroraskye-portal/2-github-saved-filters-roadmap/tabs/5-planned',
@@ -45,7 +46,8 @@ module.exports = {
           { text: 'Install', link: url.storePage },
           { text: 'Roadmap', link: url.roadmap },
           { text: 'Give feedback', link: url.feedback },
-          { text: 'Buy me a coffee', link: url.donate },
+          { text: 'Buy me a coffee', link: url.donateBMAC },
+          { text: 'Buy me a kofi', link: url.donateKOFI },
         ]
       }
     ],
