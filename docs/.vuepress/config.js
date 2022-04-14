@@ -61,29 +61,19 @@ module.exports = {
       }
     ],
     sidebar: [
+      '/search-input',
       {
-        text: 'Filters',
+        text: 'Filters Menu',
         children: [
-          '/filters/create',
-          '/filters/apply',
-          '/filters/edit',
-          '/filters/delete',
-          ...showIfDevMode([
-            '/filters/wip/share',
-            '/filters/wip/import',
-            '/filters/wip/backup',
-          ]),
-        ]
+          '/filters-menu/search',
+          '/filters-menu/options',
+          '/filters-menu/filters',
+          '/filters-menu/global-vs-repo',
+          '/filters-menu/import',
+          '/filters-menu/backup',
+        ],
       },
-      {
-        text: 'Menus',
-        children: [
-          '/menus/dates',
-          ...showIfDevMode([
-            '/menus/wip/filters'
-          ]),
-        ]
-      },
+      '/dates-menu',
     ],
   },
   scss: {

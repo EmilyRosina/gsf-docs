@@ -10,8 +10,14 @@
   }
 }
 
+.sidebar-items > li > .sidebar-heading.active {
+  border-left-color: $purple !important;
+  color: $purple !important;
+}
+
 .sidebar-item {
-  &.sidebar-heading.active {
+  &.sidebar-heading.active,
+  &.sidebar-heading.active + .sidebar-item-children {
     $header-bg-light: darken($blue-lighter, 6%);
     background: $header-bg-light;
     background: linear-gradient(
@@ -26,6 +32,10 @@
         90deg, $header-bg-dark 0%,
         transparentize($header-bg-dark, 1) 100%
       );
+    }
+
+    .sidebar-item.active:not(p.sidebar-heading) {
+      border-left-color: transparent !important;
     }
   }
 
@@ -48,10 +58,6 @@
       &:hover {
         background: darken($dark-blue, 3%);
       }
-    }
-
-    &.active[aria-current="page"] {
-      color: var(--c-text);
     }
 
     &[href*="/wip/"] {
