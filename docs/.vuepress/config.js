@@ -1,3 +1,5 @@
+const { path } = require('@vuepress/utils')
+
 const url = {
   donateKOFI: 'https://ko-fi.com/auroraskye',
   feedback: 'https://github.com/EmilyRosina/gsf.docs/discussions',
@@ -17,9 +19,18 @@ module.exports = {
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   plugins: [
-    ['@vuepress/search', {
-      searchMaxSuggestions: 10
-    }]
+    [
+      '@vuepress/search',
+      {
+        searchMaxSuggestions: 10
+      }
+    ],
+    [
+      '@vuepress/register-components',
+      {
+        componentsDir: path.resolve(__dirname, './components'),
+      }
+    ]
   ],
   locales: {
     // The key is the path for the locale to be nested under.
