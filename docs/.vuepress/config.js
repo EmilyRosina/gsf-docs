@@ -7,9 +7,12 @@ const url = {
   roadmap: 'https://portal.productboard.com/4uroraskye-portal/2-github-saved-filters-roadmap/tabs/5-planned',
 }
 
+const isDevMode = process.env.NODE_ENV === 'development'
+const isStaging = process.env?.DEPLOY_PRIME_URL?.includes('develop')
+
 function showIfDevMode (children, fallback = []) {
-  console.log(`process.env.NODE_ENV`, process.env.NODE_ENV)
-  return process.env.NODE_ENV === 'development'
+
+  return isDevMode
     ? children
     : fallback
 }
@@ -44,7 +47,7 @@ module.exports = {
   },
   themeConfig: {
     repo: 'https://github.com/EmilyRosina/gsf-docs',
-    docsBranch: 'master',
+    docsBranch: isDevMode || isStaging ? 'develop' : 'main',
     docsDir: 'docs',
     editLinkPattern: ':repo/edit/:branch/:path',
     logo: '/logo.png',
