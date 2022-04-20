@@ -41,12 +41,11 @@ export default {
 @import '../styles/vars';
 
 .gsf-filter-tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background: $dark-grey;
   color: #fff;
   height: 100%;
-  display: flex;
   align-items: center;
   font-size: 12px;
   max-width: 200px;

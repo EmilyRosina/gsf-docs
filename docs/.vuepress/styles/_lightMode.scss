@@ -4,16 +4,26 @@
 
 :root {
   //---[ BRAND COLORS ]---//
-  --c-brand: #7355EA;
-  --c-brand-light: #3370EA;
+  --c-brand: #7355ea;
+  --c-brand-light: #3370ea;
+
+  --gsf-blue: #3370ea;
+  --gsf-blue-light: #1e90ff;
+  --gsf-purple: #7355ea;
+  --gsf-purple-light: #8368f0;
 
   //---[ BACKGROUND COLORS ]---//
   --c-bg: #FFF;
   // --c-bg-light: #f3f4f5;
-  // --c-bg-lighter: #eeeeee;
+  --c-bg-lightest: #f8f8f8;
+  --c-bg-lighter: #eee;
   --c-bg-navbar: #eff6ff;
   --c-bg-sidebar: #eff6ff;
   // --c-bg-arrow: #ccc;
+  --gsf-gradient-bg: linear-gradient(
+    160deg, rgba(51, 112, 234, 0.3) 33.39%,
+    rgba(213, 79, 240, 0.3) 87.4%
+  );
 
   //---[ TEXT COLORS ]---//
   // --c-text: #2c3e50;
@@ -21,7 +31,7 @@
   // --c-text-light: #3a5169;
   // --c-text-lighter: #4e6e8e;
   // --c-text-lightest: #6a8bad;
-  // --c-text-quote: #999999;
+  --c-text-quote: #999;
 
   //---[ BORDER COLORS ]---//
   // --c-border: #eaecef;

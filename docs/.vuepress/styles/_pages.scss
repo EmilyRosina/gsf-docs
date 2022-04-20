@@ -1,0 +1,71 @@
+.home {
+  .hero {
+    .action-button {
+      transition: background-color 0.1s ease-in-out;
+
+      &.primary {
+        border-color: transparent;
+        background-color: var(--gsf-blue);
+        color: white;
+
+        .external-link-icon {
+          color: white;
+        }
+
+        &:active
+        &:focus,
+        &:hover {
+          background-color: var(--gsf-blue-light);
+          border-color: transparent;
+          color: white;
+        }
+      }
+
+      &.secondary {
+        color: var(--gsf-purple);
+        border-color: var(--gsf-purple);
+
+        &:active
+        &:focus,
+        &:hover {
+          background-color: var(--gsf-purple);
+          border-color: var(--gsf-purple);
+          color: white;
+        }
+      }
+    }
+  }
+
+  .features {
+    justify-content: center;
+
+    .feature {
+      text-align: center;
+      flex-basis: 20%;
+      max-width: 20%;
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.page,
+.home .feature {
+  a:not(.header-anchor) {
+    color: $pink;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $pink-dark;
+    }
+  }
+}
+
+.navbar,
+.sidebar {
+  border: none !important;
+}

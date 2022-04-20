@@ -5,78 +5,52 @@
 
 // ---[ SIDEBAR ]--- //
 .sidebar {
+  top: 0;
+  padding-top: var(--navbar-height);
+  z-index: 2;
+
   .navbar-item:nth-child(2) {
     display: none;
   }
-}
 
-.sidebar-items > li > .sidebar-heading.active {
-  border-left-color: $purple !important;
-  color: $purple !important;
-}
-
-.sidebar-item {
-  &.sidebar-heading.active,
-  &.sidebar-heading.active + .sidebar-item-children {
-    $header-bg-light: darken($blue-lighter, 6%);
-    background: $header-bg-light;
-    background: linear-gradient(
-      90deg, $header-bg-light 0%,
-      transparentize($header-bg-light, 1) 100%
-    );
-
-    html.dark & {
-      $header-bg-dark: darken($dark-blue, 6%);
-      background: $header-bg-dark;
-      background: linear-gradient(
-        90deg, $header-bg-dark 0%,
-        transparentize($header-bg-dark, 1) 100%
-      );
-    }
-
-    .sidebar-item.active:not(p.sidebar-heading) {
-      border-left-color: transparent !important;
-    }
-  }
-
-  &:not(.sidebar-heading) {
-    color: $pink;
-
-    &:not(.router-link-active):hover {
-      color: $pink;
-    }
-
-    &.router-link-active + .sidebar-item-children & {
-      color: $purple;
-    }
-
-    &:hover {
-      background: darken($blue-lighter, 3%);
-    }
-
-    html.dark & {
-      &:hover {
-        background: darken($dark-blue, 3%);
-      }
-    }
-
-    &[href*="/wip/"] {
-      font-style: italic;
-      opacity: 0.5;
-
-      &::before {
-        content: '🛠 WIP ::';
-        font-style: normal;
-        font-weight: 600;
-      }
-    }
+  .navbar-items {
+    border-bottom: none;
   }
 }
 
 // ---[ NAVBAR ]--- //
 .navbar {
+  background: none;
+
   &-item:nth-child(2) {
     display: none;
+  }
+
+  > span > a {
+    display: inline-flex;
+    align-items: center;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+
+      @media screen and (max-width: 719px) {
+        width: 36px;
+        height: 36px;
+        margin: 0;
+      }
+    }
+
+    .site-name {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .external-link[href*=github] {
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
   }
 }
 
@@ -94,7 +68,7 @@
   }
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 719px) {
   .search-box[role="search"] {
     input {
       width: 32px;
