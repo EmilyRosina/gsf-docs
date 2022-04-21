@@ -49,6 +49,23 @@
         padding: 0;
       }
     }
+
+    @media (max-width: 719px) {
+      flex-direction: row;
+
+      .feature {
+        max-width: 50%;
+        padding: 1em;
+      }
+    }
+  }
+
+  @media (max-width: 719px) {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
   }
 }
 
@@ -68,4 +85,26 @@
 .navbar,
 .sidebar {
   border: none !important;
+}
+
+.page {
+  padding-top: 0;
+
+  &::before {
+    content: "";
+    transition: background var(--t-transform);
+    position: sticky;
+    top: 0;
+    height: var(--navbar-height);
+    background: var(--c-bg);
+    display: block;
+    z-index: 19;
+    margin-left: auto;
+
+    @media screen and (max-width: 719px) {
+      .sidebar-open & {
+        width: calc(100% - 300px);
+      }
+    }
+  }
 }
