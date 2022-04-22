@@ -46,7 +46,7 @@ export default {
   font-size: 12px;
   outline: none;
   border: 1px solid transparent;
-  background: $dark-grey;
+  background: $grey-mid;
   color: white;
   transition: 0.125s ease-in;
   display: inline-flex;
@@ -61,7 +61,7 @@ export default {
   &:hover,
   &:active,
   &:focus {
-    background: darken($dark-grey, $btn-hover-darken);
+    background: darken($grey-mid, $btn-hover-darken);
   }
 
   &--success,
@@ -104,7 +104,7 @@ export default {
     &:hover,
     &:active,
     &:focus {
-      background: transparentize($dark-grey, $btn-hover-opacity);
+      background: transparentize($grey-mid, $btn-hover-opacity);
     }
 
     &[disabled] {

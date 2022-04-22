@@ -41,6 +41,7 @@ export default {
 .gsf-icon {
   fill: currentColor;
   display: inline-flex;
+  vertical-align: middle;
   cursor: pointer;
 
   :deep(svg) {

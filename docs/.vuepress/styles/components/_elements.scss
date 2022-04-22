@@ -1,0 +1,9 @@
+table {
+  thead {
+    background-color: var(--c-bg-lightest);
+  }
+
+  tr:nth-child(2n) {
+    background: none;
+  }
+}

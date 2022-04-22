@@ -43,7 +43,7 @@ export default {
 .gsf-filter-tag {
   display: inline-flex;
   align-items: center;
-  background: $dark-grey;
+  background: $grey-mid;
   color: #fff;
   height: 100%;
   align-items: center;

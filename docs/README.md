@@ -16,16 +16,16 @@ actions:
   <div class="feature">
     <h2>Enhanced</h2>
     <ul>
-      <li><a href="/elements/filters-menu">Filters Menu</a></li>
-      <li><a href="/elements/search-bar">Search Bar</a></li>
+      <li><router-link to="/elements/filters-menu/">Filters Menu</router-link></li>
+      <li><router-link to="/elements/search-bar/">Search Bar</router-link></li>
     </ul>
   </div>
 
   <div class="feature">
     <h2>Added</h2>
     <ul>
-      <li><a href="/elements/dates-menu">Dates Menu</a></li>
-      <li><a href="/extras/backup">Backup & Import</a></li>
+      <li><router-link to="/elements/dates-menu/">Dates Menu</router-link></li>
+      <li><router-link to="/extras/backup/">Backup & Import</router-link></li>
     </ul>
   </div>
 </div>

@@ -145,36 +145,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/vars';
+
 html.dark .gsf-search-bar {
   .borders {
-
+    stroke: $grey-mid;
   }
 
   .menu-btn {
-    &__text {
+    fill: $grey-dark;
 
+    &__text {
+      fill: $grey-light;
     }
 
     &__caret {
-
+      fill: $grey-light;
     }
   }
 
   .input {
-    &__search-icon {
+    fill: $grey-darkest;
 
+    &__search-icon {
+      fill: $grey-light;
     }
 
     &__query {
-
+      fill: $grey-light;
     }
 
     &__action-icon {
-
+      fill: $grey-lightest;
     }
   }
 
   .chip {
+    fill: var(--c-bg-light);
+
     &__icon {
 
     }
