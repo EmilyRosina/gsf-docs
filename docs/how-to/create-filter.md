@@ -6,6 +6,11 @@ sidebarDepth: 0
 # Create a filter
 
 ### Via Search Bar
+
+<GsfSearchBar
+   variant="new"
+   width="100%"/>
+
 1. Click the <GsfIcon icon="heartOutline"/> within the [Search Bar](/search-bar).
 1. The **Create filter** form will popup.
 1. Fill in the following fields
