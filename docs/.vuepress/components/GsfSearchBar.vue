@@ -3,7 +3,9 @@
     viewBox="0 0 500 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="gsf-search-bar"
+    :class="['gsf-search-bar', {
+      [`${highlight}--highlight`]: !!highlight,
+    }]"
     :style="{
       ...(height ? { height } : {}),
       ...(width ? { width } : {}),
@@ -140,6 +142,10 @@ export default {
       type: [Number, String],
       default: null,
     },
+    highlight: {
+      type: String,
+      default: '',
+    },
   }
 }
 </script>
@@ -177,6 +183,10 @@ html.dark .gsf-search-bar {
 
     &__action-icon {
       fill: $grey-lightest;
+
+      &--highlight & {
+        stroke: red;
+      }
     }
   }
 
