@@ -1,11 +1,1 @@
----
-title: Extras
----
-
-# Extras
-
-### Backup
-
-### Import
-
-### Github Docs
+<MainPageLinks page-name="extras"/>

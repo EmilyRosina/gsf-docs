@@ -90,12 +90,34 @@ module.exports = {
             link: '/elements/dates-menu/',
             collapsible: true,
           },
+          {
+            text: 'Popup',
+            link: '/elements/popup',
+            collapsible: true,
+          },
+          {
+            text: 'Options',
+            link: '/elements/options',
+            collapsible: true,
+          },
         ]
       },
       {
         text: 'Extras',
         link: '/extras/',
         collapsible: true,
+        children: [
+          {
+            text: 'Backup',
+            link: '/extras/backup',
+            collapsible: true,
+          },
+          {
+            text: 'Import',
+            link: '/extras/import',
+            collapsible: true,
+          },
+        ]
       },
     ],
   },

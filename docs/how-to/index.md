@@ -1,0 +1,1 @@
+<MainPageLinks page-name="howTo"/>
