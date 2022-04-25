@@ -4,7 +4,7 @@
     :style="`
       width: ${size}px;
       height: ${size}px;
-      color: ${color};
+      ${color ? `color: ${color};` : ''}
     `"
     v-html="theIcon"/>
 </template>
@@ -22,7 +22,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'currentColor',
+      default: '',
     },
     size: {
       type: [String, Number],
