@@ -11,7 +11,7 @@ sidebarDepth: 0
    variant="new"
    width="100%"/>
 
-1. Click the <GsfIcon icon="heartOutline"/> within the [Search Bar](/search-bar).
+1. Click the <GsfIcon icon="heartOutline"/> within the [Search Bar](/elements/search-bar/).
 1. The **Create filter** form will popup.
 1. Fill in the following fields
    - **Required**
