@@ -1,3 +1,11 @@
+---
+title: About
+editLink: false
+lastUpdated: false
+prev: false
+next: false
+---
+
 # About
 
 ### Why I made GSF

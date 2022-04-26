@@ -115,7 +115,6 @@ export default {
 <style>
 :root {
   --base-grid: 8px;
-  /* --link-size: calc(var(--base-grid) * 20); */
   --link-size: 9em;
 }
 </style>
@@ -126,13 +125,6 @@ export default {
 .links__list {
   position: relative;
   list-style: none;
-
-  @media screen and (max-width: 600px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    --link-size: calc(var(--base-grid) * 15);
-  }
 }
 
 .links {
@@ -156,14 +148,6 @@ export default {
     --angle: calc(360deg/var(--item-total));
     --rotation: calc(140deg + var(--angle)*var(--item-count));
     transform: rotate(var(--rotation)) translate(calc(var(--link-size) + var(--base-grid)*2)) rotate(calc(var(--rotation)*-1));
-
-    @media screen and (max-width: 600px) {
-      transform: none;
-      position: relative;
-      transform: none;
-      position: relative;
-      margin: 10px;
-    }
   }
 
   &__link:is(a) {
@@ -237,9 +221,33 @@ export default {
     bottom: 5em;
     animation: text 0.2s ease-in-out forwards;
   }
+}
 
-  @media screen and (max-width: 600px) {
-    min-height: 40vh;
+@media screen and (max-width: 600px) {
+  .links__item {
+    transform: none;
+    position: relative;
+    transform: none;
+    position: relative;
+    margin: 10px;
+  }
+
+  .links__text {
+    display: block;
+    font-size: 0.8em;
+    bottom: 5.5em;
+  }
+
+  .links__icon {
+    transform: translateY(calc(var(--base-grid) * -2));
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .links__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
