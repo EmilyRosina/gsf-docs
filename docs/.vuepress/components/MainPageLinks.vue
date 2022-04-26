@@ -1,5 +1,6 @@
 <template>
 <div class="links">
+  <!-- Source: https://codepen.io/dbenmore/pen/ExVxeyv -->
   <ul
     class="links__list"
     :style="`--item-total:${pageLinks.length}`">

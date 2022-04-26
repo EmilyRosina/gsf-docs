@@ -44,7 +44,7 @@ module.exports = {
     docsBranch: isDevMode || isStaging ? 'develop' : 'main',
     docsDir: 'docs',
     editLinkPattern: ':repo/edit/:branch/:path',
-    logo: '/logo.png',
+    home: '/home',
     contributors: false,
     navbar: [
       {

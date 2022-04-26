@@ -16,6 +16,18 @@ const links =[
 
 <template>
   <ParentLayout>
+    <template #sidebar-top>
+      <router-link
+        :to="$route.path.includes('home') ? '/' : '/home'"
+        class="sidebar-header-logo">
+        <img
+          class="sidebar-header-logo__image"
+          src="/logo.png"
+          alt="Github Saved Filters">
+        <span class="sidebar-header-logo__text">Github Saved Filters</span>
+      </router-link>
+    </template>
+
     <template #sidebar-bottom>
       <div class="gsf-sidebar-footer">
         <ul class="bottom-nav">
@@ -55,6 +67,25 @@ const links =[
   display: flex;
   flex-direction: column;
   max-width: 100%;
+  padding-top: 0;
+}
+
+.sidebar-header-logo {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  order: -1;
+
+  &__image {
+    height: 60px;
+    width: 60px;
+  }
+
+  &__text {
+    color: var(--c-text);
+    margin-left: 10px;
+    font-size: 18px;
+  }
 }
 
 .gsf-sidebar-footer {

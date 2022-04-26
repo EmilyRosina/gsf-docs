@@ -6,10 +6,48 @@ a.external-link.external-link.external-link {
   }
 }
 
-h1 .header-anchor {
-  color: var(--c-text);
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  color: $purple;
+  border-bottom: none;
+  padding: 0 !important;
+  margin: 1.5em 0 1em !important;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  a.header-anchor {
+    float: unset;
+    position: absolute;
+    width: 100%;
+  }
 }
 
-h2, h3 {
-  color: $purple;
+h1 { z-index: 6; color: transparentize($purple, 0); }
+h2 { z-index: 5; color: transparentize($purple, 0.1); }
+h3 { z-index: 4; color: transparentize($purple, 0.2); }
+h4 { z-index: 3; color: transparentize($purple, 0.25); }
+h5 { z-index: 2; color: transparentize($purple, 0.3); }
+h6 { z-index: 1; color: transparentize($purple, 0.35); }
+
+h1 {
+  font-size: 40px;
+  font-weight: 300;
+  background: linear-gradient(140deg, $blue 1em, $pink 4em);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:not(#main-title)::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient(160deg, $blue 15%, $pink 65%);
+  }
+
+  &#main-title {
+    text-align: center;
+    background: linear-gradient(150deg, $blue 35%, $pink 65%);
+    background-clip: text;
+  }
 }
