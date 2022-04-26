@@ -119,6 +119,11 @@ module.exports = {
           },
         ]
       },
+      {
+        text: 'About',
+        link: '/about',
+        collapsible: true,
+      },
     ],
   },
   scss: {
