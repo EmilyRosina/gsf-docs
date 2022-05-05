@@ -34,6 +34,6 @@ Where you can read about, enable and disable beta features.
 
 ### <GsfIcon icon="rocket" size="24"/> Roadmap
 
-A link that takes you to [ProductBoard](https://portal.productboard.com/4uroraskye-portal/2-github-saved-filters-roadmap).
+A link that takes you to [FeatureBase](https://gsf.featurebase.app/roadmap).
 - Shows the status of various things being worked on or considered to be worked on.
 - You can raise ideas and bugs here if you wish, or via the feedback [Github Discussions](https://github.com/EmilyRosina/gsf-docs/discussions).

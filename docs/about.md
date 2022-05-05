@@ -33,7 +33,7 @@ So, I got to work refactoring everything, all of which was relatively quick. The
 
 ### What future I see for GSF
 
-I always have some kind of improvements and features in my mind, most of which you can see on the [Roadmap](https://portal.productboard.com/4uroraskye-portal/2-github-saved-filters-roadmap/tabs/5-planned).
+I always have some kind of improvements and features in my mind, most of which you can see on the [Roadmap](https://gsf.featurebase.app/roadmap).
 Bringing things to users that they've actually asked for, is a great feeling - I hope my solutions work and solve things for you.
 
 I would like to bring this extension to the FireFox extension store too, eventually. Unsure of things I'd need to change just yet, outside of differences to account for regarding styling, storage and manifest, but it is certainly a possibility.
