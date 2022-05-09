@@ -74,7 +74,7 @@ const links =[
   display: flex;
   align-items: center;
   order: -1;
-  padding: 24px;
+  padding: 40px 30px;
 
   &__image {
     width: 60px;
@@ -83,8 +83,9 @@ const links =[
 
   &__text {
     margin-left: 10px;
-    color: var(--c-text);
-    font-size: 18px;
+    color: var(--gsf-text-stark);
+    font-size: 16px;
+    font-weight: 400;
   }
 }
 
@@ -96,11 +97,13 @@ const links =[
   .bottom-nav {
     display: flex;
     font-size: 14px;
+    line-height: normal;
 
     &__link a {
       transition: color 0.2s ease;
       color: $secondary;
       font-size: 14px;
+      font-weight: 400;
       text-decoration: none;
 
       &:focus,
@@ -111,6 +114,7 @@ const links =[
 
     &__spacer {
       padding: 0 6px;
+      color: var(--gsf-text-stark);
       cursor: default;
     }
   }

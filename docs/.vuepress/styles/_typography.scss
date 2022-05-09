@@ -1,3 +1,39 @@
+@font-face { /* ----------------------------100 -- thin- ----- */
+  font-family: Roboto;
+  font-weight: 100;
+  src: url("@styles/fonts/Roboto-Thin.ttf");
+}
+
+@font-face { /* --------------------------- 300 -- light ----- */
+  font-family: Roboto;
+  font-weight: 300;
+  src: url("@styles/fonts/Roboto-Light.ttf");
+}
+
+@font-face { /* --------------------------- 400 -- normal ---- */
+  font-family: Roboto;
+  font-weight: 400;
+  src: url("@styles/fonts/Roboto-Regular.ttf");
+}
+
+@font-face { /* --------------------------- 500 -- medium ---- */
+  font-family: Roboto;
+  font-weight: 500;
+  src: url("@styles/fonts/Roboto-Medium.ttf");
+}
+
+@font-face { /* --------------------------- 600 -- bold ------ */
+  font-family: Roboto;
+  font-weight: 600;
+  src: url("@styles/fonts/Roboto-Bold.ttf");
+}
+
+*,
+*::before,
+*::after {
+  font-family: Roboto, Arial, sans-serif;
+}
+
 a.external-link.external-link.external-link {
   color: $blue;
 
