@@ -12,7 +12,7 @@ sidebarDepth: 0
   width="100%"/>
 
 1. The query you want to delete must be active in the [Search Bar](/elements/search-bar/).
-1. Click the <GsfIcon icon="heart"/> to open the [Edit filter form](/filter-form/edit-filter).
+1. Click the <GsfIcon icon="heart"/> to open the [Edit filter form](/elements/filter-form/edit-filter).
 1. Click the <GsfButton theme="error" sm>Delete</GsfButton> button to open the delete modal.
 1. Click the <GsfButton theme="error" sm>Delete filter</GsfButton> button to confirm deletion.
 
