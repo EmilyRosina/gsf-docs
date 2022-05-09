@@ -11,7 +11,11 @@ module.exports = {
     [
       '@vuepress/search',
       {
-        searchMaxSuggestions: 10
+        maxSuggestions: 10,
+        getExtraFields: (page) => {
+          const { tags } = page.frontmatter
+          return tags ?? []
+        },
       }
     ],
     [

@@ -5,8 +5,15 @@
     }]">
     <AutoLink
       v-if="item.link"
-      :class="itemClass"
-      :item="item"/>
+      :class="['sidebar-item', itemClass]"
+      :item="item">
+      <template #before>
+        <GsfIcon
+          v-if="!depth"
+          size="20"
+          :icon="pageIcon[item.text]"/>
+      </template>
+    </AutoLink>
     <p
       v-else
       tabindex="0"
@@ -58,10 +65,15 @@ const router = useRouter()
 
 const isActive = computed(() => isActiveSidebarItem(item.value, route))
 const itemClass = computed(() => ({
-  'sidebar-item': true,
   'sidebar-heading': depth.value === 0,
   'active': isActive.value,
   'collapsible': item.value.collapsible,
+}))
+const pageIcon = computed(() => ({
+  'How to': 'howToPage',
+  'Elements': 'elementsPage',
+  'Extras': 'extrasPage',
+  'About': 'aboutPage',
 }))
 
 const isOpen = ref(true)
@@ -105,15 +117,25 @@ if (item.value.collapsible) {
 }
 
 .sidebar-item-children .sidebar-item-children .sidebar-item:not(.sidebar-heading) {
-  padding: 0.25rem 1rem 0.25rem 2.75rem;
+  padding: 0.35rem 1rem 0.35rem 4rem;
 }
 
 .sidebar-item:not(.sidebar-heading) + .sidebar-item-children {
   padding-left: 0;
 }
 
-.sidebar-item.sidebar-heading {
-  padding: 0.75rem 1.5rem 0.75rem 1.25rem;
-  font-size: 1.25em;
+.sidebar-item.sidebar-heading.sidebar-heading {
+  padding: 24px;
+  color: var(--gsf-text-stark);
+  font-size: 16px;
+  font-weight: 400;
+
+  .gsf-icon {
+    padding-right: 12px;
+  }
+
+  &:not(.active):hover {
+    background: var(--gsf-sidebar-item-hover);
+  }
 }
 </style>
