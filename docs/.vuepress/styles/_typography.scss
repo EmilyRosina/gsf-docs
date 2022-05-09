@@ -2,40 +2,17 @@ a.external-link.external-link.external-link {
   color: $blue;
 
   &:hover {
-    color: lighten($blue, 12%);
+    color: $blue-light;
   }
 }
-
-h1, h2, h3, h4, h5, h6 {
-  position: relative;
-  color: $purple;
-  border-bottom: none;
-  padding: 0 !important;
-  margin: 1.5em 0 1em !important;
-
-  &:first-child {
-    margin-top: 0 !important;
-  }
-
-  a.header-anchor {
-    float: unset;
-    position: absolute;
-    width: 100%;
-  }
-}
-
-h1 { z-index: 6; color: transparentize($purple, 0); }
-h2 { z-index: 5; color: transparentize($purple, 0.1); }
-h3 { z-index: 4; color: transparentize($purple, 0.2); }
-h4 { z-index: 3; color: transparentize($purple, 0.25); }
-h5 { z-index: 2; color: transparentize($purple, 0.3); }
-h6 { z-index: 1; color: transparentize($purple, 0.35); }
 
 h1 {
-  font-size: 40px;
-  font-weight: 300;
+  z-index: 6;
   background: linear-gradient(140deg, $blue 1em, $pink 4em);
   background-clip: text;
+  color: rgba($purple, 1);
+  font-size: 40px;
+  font-weight: 300;
   -webkit-text-fill-color: transparent;
 
   &:not(#main-title)::after {
@@ -46,8 +23,56 @@ h1 {
   }
 
   &#main-title {
-    text-align: center;
     background: linear-gradient(150deg, $blue 35%, $pink 65%);
     background-clip: text;
+    text-align: center;
+  }
+}
+
+h2 {
+  z-index: 5;
+  color: rgba($purple, 0.9);
+}
+
+h3 {
+  z-index: 4;
+  color: rgba($purple, 0.8);
+}
+
+h4 {
+  z-index: 3;
+  color: rgba($purple, 0.75);
+}
+
+h5 {
+  z-index: 2;
+  color: rgba($purple, 0.7);
+}
+
+h6 {
+  z-index: 1;
+  color: rgba($purple, 0.65);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin: 1.5em 0 1em !important;
+  padding: 0 !important;
+  border-bottom: none;
+  color: $purple;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  a.header-anchor {
+    position: absolute;
+    width: 100%;
+    float: unset;
   }
 }

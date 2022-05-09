@@ -39,8 +39,8 @@ export default {
 
 <style lang="scss" scoped>
 .gsf-icon {
-  fill: currentColor;
   display: inline-flex;
+  fill: currentColor;
   vertical-align: middle;
   cursor: pointer;
 

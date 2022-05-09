@@ -19,22 +19,22 @@ export default {
 
 <style lang="scss" scoped>
 a {
-  border-radius: 10px;
-  transition: none;
-  position: relative;
   display: flex;
+  position: relative;
   padding: 1px;
+  transition: none;
   border: 1px solid transparent;
+  border-radius: 10px;
 
   &::before {
     content: attr(data-label);
     position: absolute;
-    left: 12px;
     top: -1em;
+    left: 12px;
+    transition: none;
+    opacity: 0;
     font-size: 24px;
     font-weight: 300;
-    opacity: 0;
-    transition: none;
   }
 
   &:hover,

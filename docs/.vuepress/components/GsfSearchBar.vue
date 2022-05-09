@@ -151,7 +151,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/vars';
+@import "@styles/vars";
 
 html.dark .gsf-search-bar {
   .borders {
@@ -192,14 +192,6 @@ html.dark .gsf-search-bar {
 
   .chip {
     fill: var(--c-bg-light);
-
-    &__icon {
-
-    }
-
-    &__text {
-
-    }
   }
 }
 </style>

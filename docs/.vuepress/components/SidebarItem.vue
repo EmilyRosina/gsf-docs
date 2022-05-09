@@ -91,13 +91,16 @@ if (item.value.collapsible) {
   }
 
   &--active {
-    background: var(--gsf-gradient-bg);
     border: none;
     border-top: 1px solid;
     border-bottom: 1px solid;
-    border-image: linear-gradient(
-      105deg, #3370EA 50%,
-      #D54FF0 75%) 1;
+    background: var(--gsf-gradient-bg);
+    border-image:
+      linear-gradient(
+        105deg,
+        #3370ea 50%,
+        #d54ff0 75%
+      ) 1;
   }
 }
 
@@ -110,7 +113,7 @@ if (item.value.collapsible) {
 }
 
 .sidebar-item.sidebar-heading {
-  font-size: 1.25em;
   padding: 0.75rem 1.5rem 0.75rem 1.25rem;
+  font-size: 1.25em;
 }
 </style>

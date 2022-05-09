@@ -1,10 +1,10 @@
-@import 'lightMode';
-@import 'darkMode';
+@import "lightMode";
+@import "darkMode";
+
 // https://v2.vuepress.vuejs.org/reference/default-theme/styles.html#palette-file
 
-
 :root {
-  //---[ TYPOGRAPHY VARS ]---//
+  // ---[ TYPOGRAPHY VARS ]--- //
   // --font-family:
   //   -apple-system,
   //   BlinkMacSystemFont,
@@ -23,12 +23,14 @@
   //   'Ubuntu Mono',
   //   monospace;
 
-  //---[ LAYOUT VARS ]---//
+  // ---[ LAYOUT VARS ]--- //
   --navbar-height: 100px;
+
   // --navbar-padding-v: 0.7rem;
   // --navbar-padding-h: 1.5rem;
   --sidebar-width: 300px;
   --sidebar-width-mobile: 300px;
+
   // --content-width: 740px;
   // --homepage-width: 960px;
 }

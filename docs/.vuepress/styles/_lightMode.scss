@@ -1,43 +1,47 @@
-@import 'vars';
+@import "vars";
 
 // https://v2.vuepress.vuejs.org/reference/default-theme/styles.html#palette-file
 
 :root {
-  //---[ BRAND COLORS ]---//
+  // ---[ BRAND COLORS ]--- //
   --c-brand: #7355ea;
   --c-brand-light: #3370ea;
-
   --gsf-blue: #3370ea;
   --gsf-blue-light: #1e90ff;
   --gsf-purple: #7355ea;
   --gsf-purple-light: #8368f0;
 
-  //---[ BACKGROUND COLORS ]---//
+  // ---[ BACKGROUND COLORS ]--- //
   --c-bg: #fff;
   --c-bg-lightest: #f8f8f8;
   --c-bg-lighter: #eee;
   --c-bg-light: #f3f4f5;
   --c-bg-navbar: #eff6ff;
   --c-bg-sidebar: #eff6ff;
-  // --c-bg-arrow: #ccc;
-  --gsf-gradient-bg: linear-gradient(
-    160deg, rgba(51, 112, 234, 0.3) 33.39%,
-    rgba(213, 79, 240, 0.3) 87.4%
-  );
 
-  //---[ TEXT COLORS ]---//
+  // --c-bg-arrow: #ccc;
+  --gsf-gradient-bg:
+    linear-gradient(
+      160deg,
+      rgb(51 112 234 / 30%) 33.39%,
+      rgb(213 79 240 / 30%) 87.4%
+    );
+
+  // ---[ TEXT COLORS ]--- //
   --c-text: #2c3e50;
+
   // --c-text-accent: var(--c-brand);
   --c-text-light: #3a5169;
+
   // --c-text-lighter: #4e6e8e;
   // --c-text-lightest: #6a8bad;
   --c-text-quote: #999;
 
-  //---[ BORDER COLORS ]---//
+  // ---[ BORDER COLORS ]--- //
   // --c-border: #eaecef;
   // --c-border-dark: #dfe2e5;
 
-  //---[ CUSTOM CONTAINER COLORS ]---//
+  // ---[ CUSTOM CONTAINER COLORS ]--- //
   // --c-tip: #42b983;
   // --c-tip-bg: var(--c-bg-light);
   // --c-tip-title: var(--c-text);
@@ -55,29 +59,29 @@
   // --c-danger-text-accent: var(--c-text);
   // --c-details-bg: #eeeeee;
 
-  //---[ BADGE COMPONENT ]---//
+  // ---[ BADGE COMPONENT ]--- //
   // --c-badge-tip: var(--c-tip);
   // --c-badge-warning: var(--c-warning);
   // --c-badge-danger: var(--c-danger);
 
-  //---[ CODE BLOCKS ]---//
+  // ---[ CODE BLOCKS ]--- //
   // --code-bg-color: #282c34;
   // --code-hl-bg-color: rgba(0, 0, 0, 0.66);
   // --code-ln-color: #9e9e9e;
   // --code-ln-wrapper-width: 3.5rem;
 
-  //---[ TRANSITION VARS ]---//
+  // ---[ TRANSITION VARS ]--- //
   // --t-color: 0.3s ease;
   // --t-transform: 0.3s ease;
 }
 
-//---[ PLUGIN: BACK-TO-TOP ]---//
+// ---[ PLUGIN: BACK-TO-TOP ]--- //
 // .back-to-top {
 //   --back-to-top-color: var(--c-brand);
 //   --back-to-top-color-hover: var(--c-brand-light);
 // }
 
-//---[ PLUGIN: DOCSEARCH ]---//
+// ---[ PLUGIN: DOCSEARCH ]--- //
 // .DocSearch {
 //   --docsearch-primary-color: var(--c-brand);
 //   --docsearch-text-color: var(--c-text);
@@ -95,22 +99,22 @@
 //   --docsearch-footer-background: var(--c-bg);
 // }
 
-//---[ PLUGIN: EXTERNAL-LINK-ICON ]---//
+// ---[ PLUGIN: EXTERNAL-LINK-ICON ]--- //
 // .external-link-icon {
 //   --external-link-icon-color: var(--c-text-quote);
 // }
 
-//---[ PLUGIN: MEDIUM-ZOOM ]---//
+// ---[ PLUGIN: MEDIUM-ZOOM ]--- //
 // .medium-zoom-overlay {
 //   --medium-zoom-bg-color: var(--c-bg);
 // }
 
-//---[ PLUGIN: NPROGRESS ]---//
+// ---[ PLUGIN: NPROGRESS ]--- //
 // #nprogress {
 //   --nprogress-color: var(--c-brand);
 // }
 
-//---[ PLUGIN: PWA-POPUP ]---//
+// ---[ PLUGIN: PWA-POPUP ]--- //
 // .pwa-popup {
 //   --pwa-popup-text-color: var(--c-text);
 //   --pwa-popup-bg-color: var(--c-bg);
@@ -121,7 +125,7 @@
 //   --pwa-popup-btn-hover-bg-color: var(--c-brand-light);
 // }
 
-//---[ PLUGIN: SEARCH ]---//
+// ---[ PLUGIN: SEARCH ]--- //
 // .search-box {
 //   --search-bg-color: var(--c-bg);
 //   --search-accent-color: var(--c-brand);

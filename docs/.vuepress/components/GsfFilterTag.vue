@@ -38,32 +38,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/vars';
+@import "@styles/vars";
 
 .gsf-filter-tag {
   display: inline-flex;
   align-items: center;
+  width: fit-content;
+  max-width: 200px;
+  height: 100%;
+  padding: 0 0.5em;
+  border-radius: 3px;
   background: $grey-mid;
   color: #fff;
-  height: 100%;
-  align-items: center;
   font-size: 12px;
-  max-width: 200px;
-  border-radius: 3px;
-  padding: 0 0.5em;
-  width: fit-content;
 
   &--not-block {
     background: none;
-    color: $dark_dimmed-text;
+    color: $dark-dimmed-text;
   }
 
   &__icon {
     margin-right: 3px;
 
     :deep(.gsf-icon) {
-      height: 13px;
       width: 13px;
+      height: 13px;
 
       &.gsf-repo-icon {
         margin-left: -2px;
@@ -72,8 +71,8 @@ export default {
   }
 
   &__text {
-    white-space: nowrap;
     display: inline-block;
+    white-space: nowrap;
   }
 }
 </style>

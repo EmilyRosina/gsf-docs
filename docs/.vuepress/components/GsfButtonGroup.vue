@@ -49,28 +49,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/vars';
+@import "@styles/vars";
 
 .button-group {
   display: flex;
 
   &__btn {
-    padding: 0 6px;
-    border: 1px solid $dark_dimmed-text;
-    user-select: none;
-    cursor: pointer;
-    font-size: 12px;
-    border-radius: 0;
     margin-left: -1px;
+    padding: 0 6px;
+    border: 1px solid $dark-dimmed-text;
+    border-radius: 0;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
 
     &:first-of-type {
+      margin-left: 0;
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px;
-      margin-left: 0;
     }
+
     &:last-of-type {
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
+    }
+  }
+
+  &[disabled] {
+    .button-group__btn {
+      cursor: not-allowed;
     }
   }
 
@@ -80,15 +87,9 @@ export default {
     &:checked,
     &:active:not([disabled]) {
       + .button-group__btn {
-        background: $dark_dimmed-text;
-        color: $dark_dimmed-bg-tertiary;
+        background: $dark-dimmed-text;
+        color: $dark-dimmed-bg-tertiary;
       }
-    }
-  }
-
-  &[disabled] {
-    .button-group__btn {
-      cursor: not-allowed;
     }
   }
 }

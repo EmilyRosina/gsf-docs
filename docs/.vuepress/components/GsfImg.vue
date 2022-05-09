@@ -38,6 +38,10 @@ export default {
 
 <style lang="scss" scoped>
 html {
+  picture {
+    padding: 1em;
+  }
+
   &.dark {
     picture {
       img[light-mode] {
@@ -53,9 +57,5 @@ html {
       }
     }
   }
-}
-
-picture {
-  padding: 1em;
 }
 </style>

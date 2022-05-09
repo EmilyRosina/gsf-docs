@@ -61,7 +61,7 @@ const links =[
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/vars';
+@import "@styles/vars";
 
 :deep(.sidebar) {
   display: flex;
@@ -73,35 +73,35 @@ const links =[
 .sidebar-header-logo {
   display: flex;
   align-items: center;
-  padding: 24px;
   order: -1;
+  padding: 24px;
 
   &__image {
-    height: 60px;
     width: 60px;
+    height: 60px;
   }
 
   &__text {
-    color: var(--c-text);
     margin-left: 10px;
+    color: var(--c-text);
     font-size: 18px;
   }
 }
 
 .gsf-sidebar-footer {
-  padding-bottom: 42px;
-  margin-top: auto;
   align-self: center;
+  margin-top: auto;
+  padding-bottom: 42px;
 
   .bottom-nav {
     display: flex;
     font-size: 14px;
 
     &__link a {
-      color: $secondary;
-      text-decoration: none;
       transition: color 0.2s ease;
+      color: $secondary;
       font-size: 14px;
+      text-decoration: none;
 
       &:focus,
       &:hover {

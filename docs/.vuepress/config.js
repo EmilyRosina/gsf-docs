@@ -24,6 +24,7 @@ module.exports = {
   alias: {
     // set alias for replaceable components
     '@theme/SidebarItem.vue': path.resolve(__dirname, 'components/SidebarItem.vue'),
+    '@styles': path.resolve(__dirname, './styles'),
   },
   locales: {
     // The key is the path for the locale to be nested under.

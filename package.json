@@ -2,13 +2,20 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "build:staging": "vuepress build docs"
+    "build:staging": "vuepress build docs",
+    "lint": "stylelint \"**/*.(vue|scss)\" \"docs/.vuepress/**/*.(vue|scss)\" --fix"
   },
   "devDependencies": {
-    "@vuepress/plugin-register-components": "^2.0.0-beta.38",
+    "@vuepress/plugin-register-components": "2.0.0-beta.38",
     "@vuepress/plugin-search": "2.0.0-beta.36",
-    "sass": "1.49.9",
+    "sass": "1.51.0",
     "sass-loader": "7.3.1",
+    "stylelint": "14.8.2",
+    "stylelint-config-property-sort-order-smacss": "9.0.0",
+    "stylelint-config-recommended-vue": "1.4.0",
+    "stylelint-config-standard-scss": "3.0.0",
+    "stylelint-order": "5.0.0",
+    "stylelint-scss": "4.2.0",
     "vuepress": "2.0.0-beta.36"
   }
 }

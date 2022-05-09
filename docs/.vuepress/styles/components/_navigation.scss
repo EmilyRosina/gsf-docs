@@ -3,25 +3,6 @@
   border: none;
 }
 
-// ---[ SIDEBAR ]--- //
-.sidebar-mask {
-  z-index: 1; // bugs out on mobile
-}
-
-.sidebar {
-  top: 0;
-  padding-top: var(--navbar-height);
-  z-index: 21;
-
-  .navbar-item:nth-child(2) {
-    display: none;
-  }
-
-  .navbar-items {
-    display: none;
-  }
-}
-
 // ---[ NAVBAR ]--- //
 .navbar {
   background: none;
@@ -57,10 +38,10 @@
     }
   }
 
-  .external-link[href*=github] {
+  .external-link[href*="github"] {
     visibility: hidden;
-    user-select: none;
     pointer-events: none;
+    user-select: none;
   }
 
   .toggle-sidebar-button {
@@ -69,24 +50,44 @@
 
     .sidebar-open & {
       display: none;
-      transition: transform var(--t-transform);
       transform: translate(256px, -20px);
-      background: var(--c-bg-sidebar);
+      transition: transform var(--t-transform);
       border-radius: 50%;
+      background: var(--c-bg-sidebar);
     }
   }
 
   @media screen and (max-width: 719px) {
     display: flex;
-    padding: 0;
     align-items: center;
     justify-content: center;
+    padding: 0;
+  }
+}
+
+// ---[ SIDEBAR ]--- //
+.sidebar-mask {
+  z-index: 1; // bugs out on mobile
+}
+
+.sidebar {
+  z-index: 21;
+  top: 0;
+  padding-top: var(--navbar-height);
+
+  .navbar-item:nth-child(2) {
+    display: none;
+  }
+
+  .navbar-items {
+    display: none;
   }
 }
 
 .search-box {
   order: 2;
 }
+
 .toggle-dark-button {
   order: 3;
   margin-left: 0.5em;

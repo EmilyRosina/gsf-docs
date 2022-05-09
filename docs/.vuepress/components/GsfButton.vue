@@ -35,23 +35,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/vars';
+@use "sass:color";
+@import "@styles/vars";
 
 .gsf-button {
-  $btn-hover-opacity: 0.9;
-  $btn-hover-darken: 3%;
+  $btn-hover-opacity: 0.1;
+  $btn-hover-darken: -3%;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.25em 0.75em;
-  border-radius: 4px;
-  font-size: 12px;
-  outline: none;
+  transition: 0.125s ease-in;
   border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
   background: $grey-mid;
   color: white;
-  transition: 0.125s ease-in;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 12px;
   cursor: pointer;
 
   + :deep(.gsf-button) {
@@ -61,7 +62,7 @@ export default {
   &:hover,
   &:active,
   &:focus {
-    background: darken($grey-mid, $btn-hover-darken);
+    background: color.adjust($grey-mid, $lightness: $btn-hover-darken);
   }
 
   &--success,
@@ -76,7 +77,7 @@ export default {
     &:hover,
     &:active,
     &:focus {
-      background: darken($success, $btn-hover-darken);
+      background: color.adjust($success, $lightness: $btn-hover-darken);
     }
   }
 
@@ -86,25 +87,25 @@ export default {
     &:hover,
     &:active,
     &:focus {
-      background: darken($error, $btn-hover-darken);
+      background: color.adjust($error, $lightness: $btn-hover-darken);
     }
   }
 
   &[disabled] {
-    background: $disabled;
     opacity: 0.5;
+    background: $disabled;
     cursor: default;
   }
 
   &--outline {
-    background: none;
     border: 1px solid currentColor;
-    color: $dark_dimmed-text;
+    background: none;
+    color: $dark-dimmed-text;
 
     &:hover,
     &:active,
     &:focus {
-      background: transparentize($grey-mid, $btn-hover-opacity);
+      background: rgba($grey-mid, $btn-hover-opacity);
     }
 
     &[disabled] {
@@ -118,7 +119,7 @@ export default {
         &:hover,
         &:active,
         &:focus {
-          background: transparentize($success, $btn-hover-opacity);
+          background: rgba($success, $btn-hover-opacity);
         }
       }
 
@@ -128,7 +129,7 @@ export default {
         &:hover,
         &:active,
         &:focus {
-          background: transparentize($error, $btn-hover-opacity);
+          background: rgba($error, $btn-hover-opacity);
         }
       }
 
@@ -140,8 +141,8 @@ export default {
   }
 
   &--sm {
-    font-size: 12px;
     padding: 0.1em 0.75em;
+    font-size: 12px;
   }
 }
 </style>

@@ -21,23 +21,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/vars';
+@import "@styles/vars";
 
 .gsf-beta {
+  align-self: center;
+  margin-right: 4px;
+  margin-left: 0.5em;
+  padding: 4px 8px;
+  border-radius: 1em;
   background: linear-gradient(145deg, $blue 35%, $pink 85%);
   color: white;
-  font-weight: 500;
-  border-radius: 1em;
   font-size: 10px;
-  padding: 4px 8px;
-  margin-right: 4px;
+  font-weight: 500;
   line-height: 1em;
-  align-self: center;
-  margin-left: 0.5em;
 
   &--lg {
-    font-size: 12px;
     padding: 4px 10px;
+    font-size: 12px;
   }
 }
 </style>

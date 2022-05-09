@@ -120,7 +120,7 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-@import '../styles/vars';
+@import "@styles/vars";
 
 .links__list {
   position: relative;
@@ -128,58 +128,70 @@ export default {
 }
 
 .links {
-  color: var(--c-text);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 30em;
   overflow: hidden;
+  color: var(--c-text);
   color: $purple;
 
   &__item {
-    width: var(--link-size);
-    height: var(--link-size);
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: calc(var(--link-size)/-2);
-    margin-left: calc(var(--link-size)/-2);
-    --angle: calc(360deg/var(--item-total));
-    --rotation: calc(140deg + var(--angle)*var(--item-count));
-    transform: rotate(var(--rotation)) translate(calc(var(--link-size) + var(--base-grid)*2)) rotate(calc(var(--rotation)*-1));
+    width: var(--link-size);
+    height: var(--link-size);
+    margin-top: calc(var(--link-size) / -2);
+    margin-left: calc(var(--link-size) / -2);
+    transform: rotate(var(--rotation)) translate(calc(var(--link-size) + var(--base-grid) * 2)) rotate(calc(var(--rotation) * -1));
+
+    --angle: calc(360deg / var(--item-total));
+    --rotation: calc(140deg + var(--angle) * var(--item-count));
+  }
+
+  &__text {
+    display: none;
+    position: absolute;
+    bottom: 5em;
+    left: 0;
+    width: 100%;
+    animation: text 0.2s ease-in-out forwards;
+    font-size: 0.9em;
+    text-align: center;
   }
 
   &__link:is(a) {
-    opacity: 0;
-    animation: on-load .3s ease-in-out forwards;
-    animation-delay: calc(var(--item-count)*150ms);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    animation: on-load 0.3s ease-in-out forwards;
+    animation-delay: calc(var(--item-count) * 150ms);
     border-radius: 50%;
-    position: relative;
-    background: rgba(51, 112, 234, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+    opacity: 0;
+    background: rgb(51 112 234 / 10%);
     color: var(--c-text-light);
+    text-decoration: none;
 
     &::after {
       content: "";
-      background-color: transparent;
-      width: var(--link-size);
-      height: var(--link-size);
-      border: 2px dashed $purple;
       display: block;
-      border-radius: 50%;
       position: absolute;
       top: -2px;
       left: -2px;
-      transition: all .3s cubic-bezier(0.53, -0.67, 0.73, 0.74);
+      width: var(--link-size);
+      height: var(--link-size);
       transform: none;
+      transition: all 0.3s cubic-bezier(0.53, -0.67, 0.73, 0.74);
+      border: 2px dashed $purple;
+      border-radius: 50%;
       opacity: 0;
+      background-color: transparent;
     }
 
     &:hover {
@@ -187,8 +199,8 @@ export default {
       color: $purple;
 
       .links__icon {
-        transition: all 0.2s ease-in-out;
         transform: translateY(calc(var(--base-grid) * -2));
+        transition: all 0.2s ease-in-out;
         color: $pink;
       }
 
@@ -198,48 +210,17 @@ export default {
       }
 
       &::after {
-        transition: all .3s cubic-bezier(0.37, 0.74, 0.15, 1.65);
         transform: scale(1.1);
+        transition: all 0.3s cubic-bezier(0.37, 0.74, 0.15, 1.65);
         opacity: 1;
       }
     }
   }
 
   &__icon.gsf-icon {
-    width: calc(var(--base-grid)*8);
-    height: calc(var(--base-grid)*8);
+    width: calc(var(--base-grid) * 8);
+    height: calc(var(--base-grid) * 8);
     transition: all 0.2s ease-in-out;
-  }
-
-  &__text {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    font-size: 0.9em;
-    display: none;
-    bottom: 5em;
-    animation: text 0.2s ease-in-out forwards;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .links__item {
-    transform: none;
-    position: relative;
-    transform: none;
-    position: relative;
-    margin: 10px;
-  }
-
-  .links__text {
-    display: block;
-    font-size: 0.8em;
-    bottom: 5.5em;
-  }
-
-  .links__icon {
-    transform: translateY(calc(var(--base-grid) * -2));
   }
 }
 
@@ -251,29 +232,56 @@ export default {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .links__item {
+    position: relative;
+    margin: 10px;
+    transform: none;
+  }
+
+  .links__text {
+    display: block;
+    bottom: 5.5em;
+    font-size: 0.8em;
+  }
+
+  .links__icon {
+    transform: translateY(calc(var(--base-grid) * -2));
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .links {
+    --link-size: 8em;
+  }
+}
+
 @keyframes on-load {
   0% {
+    transform: scale(0.3);
     opacity: 0;
-    transform: scale(.3);
   }
+
   70% {
-    opacity: .7;
     transform: scale(1.1);
+    opacity: 0.7;
   }
+
   100% {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 
 @keyframes text {
   0% {
-    opacity: 0;
     transform: scale(0.3) translateY(0);
+    opacity: 0;
   }
+
   100% {
+    transform: scale(1) translateY(calc(var(--base-grid) * 5));
     opacity: 1;
-    transform: scale(1) translateY(calc(var(--base-grid)*5));
   }
 }
 </style>
