@@ -14,7 +14,7 @@ actions:
 
 <div class="features">
   <div class="feature">
-    <h2>Enhanced</h2>
+    <h3 class="feature__title">Enhanced</h3>
     <ul>
       <li><router-link to="/elements/filters-menu/">Filters Menu</router-link></li>
       <li><router-link to="/elements/search-bar/">Search Bar</router-link></li>
@@ -22,7 +22,7 @@ actions:
   </div>
 
   <div class="feature">
-    <h2>Added</h2>
+    <h3 class="feature__title">Added</h3>
     <ul>
       <li><router-link to="/elements/dates-menu/">Dates Menu</router-link></li>
       <li><router-link to="/extras/backup/">Backup & Import</router-link></li>

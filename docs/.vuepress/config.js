@@ -37,7 +37,7 @@ module.exports = {
     '/': {
       lang: 'en', // this will be set as the lang attribute on <html>
       title: 'Github Saved Filters',
-      description: 'Documentation for the GSF Chrome extension'
+      description: 'Documentation'
     },
   },
   theme: path.resolve(__dirname, './theme'),

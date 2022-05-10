@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .page,
 .home .feature {
   a:not(.header-anchor) {
@@ -14,6 +16,8 @@
 }
 
 .home {
+  user-select: none;
+
   .hero {
     .action-button {
       transition: background-color 0.1s ease-in-out;
@@ -47,15 +51,78 @@
         }
       }
     }
+
+    #main-title {
+      margin-bottom: 0 !important;
+    }
+
+    .description {
+      margin-top: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 300px;
+      height: 2px;
+      margin: 0 auto;
+      background: linear-gradient(160deg, $blue 15%, $pink 65%);
+    }
   }
 
   .features {
     justify-content: center;
+    margin-top: 0;
+    padding: 0;
+    border: none;
 
     .feature {
-      flex-basis: 20%;
-      max-width: 20%;
+      position: relative;
+      flex: 0 1 auto;
+      width: 120px;
+      margin: 1em 0.5em;
+      padding: 0.5em;
+      font-size: 16px;
       text-align: center;
+
+      &__title:is(h3) {
+        margin: 0 !important;
+        font-size: 24px;
+        font-weight: 300;
+      }
+
+      &:first-of-type {
+        .feature__title {
+          color: $blue;
+        }
+
+        a {
+          transition: color 0.25s ease-in;
+          color: $blue;
+
+          &:hover,
+          &:focus {
+            color: color.adjust($blue, $lightness: 15%);
+          }
+        }
+      }
+
+      &:last-of-type {
+        .feature__title {
+          color: $pink;
+        }
+
+        /* stylelint-disable-next-line no-descending-specificity */
+        a {
+          transition: color 0.5s ease;
+          color: $pink;
+
+          &:hover,
+          &:focus {
+            color: color.adjust($pink, $lightness: 15%);
+          }
+        }
+      }
 
       ul {
         padding: 0;
