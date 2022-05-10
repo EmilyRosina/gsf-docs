@@ -40,7 +40,7 @@ sidebarDepth: 1
 
 ## Saved filters
 
-#### Github default filter
+### Github default filter
 > These are queries already populated by Github, as helper defaults.
 > <br>*You will not be able to save new filters using these queries, they're reserved.*
 
@@ -48,14 +48,14 @@ sidebarDepth: 1
   variant="default"
   width="100%"/>
 
-#### Global filter
+### Global filter
 > Global filters will appear on every repo and on the global issues/pulls pages.
 
 <GsfSearchBar
   variant="global"
   width="100%"/>
 
-#### Repo filter
+### Repo filter
 > Repo filters will only appear on the repo they were created on/imported to.
 
 <GsfSearchBar

@@ -1,10 +1,10 @@
 ---
 title: Filter form
-sidebarDepth: 0
+sidebarDepth: 1
 ---
 
 # Filter Form
 
-### New Filter
+## New Filter
 
-### Edit Filter
+## Edit Filter

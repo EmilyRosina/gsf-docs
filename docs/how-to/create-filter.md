@@ -5,7 +5,7 @@ sidebarDepth: 0
 
 # Create a filter
 
-### Via Search Bar
+## Via Search Bar
 
 <GsfSearchBar
    variant="new"

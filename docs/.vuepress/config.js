@@ -97,12 +97,12 @@ module.exports = {
           },
           {
             text: 'Popup',
-            link: '/elements/popup',
+            link: '/elements/popup/',
             collapsible: true,
           },
           {
             text: 'Options',
-            link: '/elements/options',
+            link: '/elements/options/',
             collapsible: true,
           },
         ]

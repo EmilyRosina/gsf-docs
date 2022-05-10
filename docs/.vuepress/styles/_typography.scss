@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @font-face { /* ----------------------------100 -- thin- ----- */
   font-family: Roboto;
   font-weight: 100;
@@ -42,54 +44,6 @@ a.external-link.external-link.external-link {
   }
 }
 
-h1 {
-  z-index: 6;
-  background: linear-gradient(140deg, $blue 1em, $pink 4em);
-  background-clip: text;
-  color: rgba($purple, 1);
-  font-size: 40px;
-  font-weight: 300;
-  -webkit-text-fill-color: transparent;
-
-  &:not(#main-title)::after {
-    content: "";
-    display: block;
-    height: 2px;
-    background: linear-gradient(160deg, $blue 15%, $pink 65%);
-  }
-
-  &#main-title {
-    background: linear-gradient(150deg, $blue 35%, $pink 65%);
-    background-clip: text;
-    text-align: center;
-  }
-}
-
-h2 {
-  z-index: 5;
-  color: rgba($purple, 0.9);
-}
-
-h3 {
-  z-index: 4;
-  color: rgba($purple, 0.8);
-}
-
-h4 {
-  z-index: 3;
-  color: rgba($purple, 0.75);
-}
-
-h5 {
-  z-index: 2;
-  color: rgba($purple, 0.7);
-}
-
-h6 {
-  z-index: 1;
-  color: rgba($purple, 0.65);
-}
-
 h1,
 h2,
 h3,
@@ -97,18 +51,78 @@ h4,
 h5,
 h6 {
   position: relative;
-  margin: 1.5em 0 1em !important;
+  margin: 2em 0 0.5em !important;
   padding: 0 !important;
   border-bottom: none;
-  color: $purple;
-
-  &:first-child {
-    margin-top: 0 !important;
-  }
 
   a.header-anchor {
     position: absolute;
     width: 100%;
     float: unset;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  &:is(h1) {
+    z-index: 6;
+    background: linear-gradient(140deg, $blue 1em, $pink 4em);
+    background-clip: text;
+    color: rgba($purple, 1);
+    font-size: 40px;
+    font-weight: 300;
+    -webkit-text-fill-color: transparent;
+
+    &:not(#main-title)::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: linear-gradient(160deg, $blue 15%, $pink 65%);
+    }
+
+    &#main-title {
+      background: linear-gradient(150deg, $blue 35%, $pink 65%);
+      background-clip: text;
+      text-align: center;
+    }
+  }
+
+  &:is(h2) {
+    z-index: 5;
+    padding-left: 0.25em !important;
+    border-left: 3px solid $purple;
+    background: var(--gsf-purple-gradient-bg);
+    font-size: 32px;
+    font-weight: 300;
+
+    &:hover a,
+    &:focus a {
+      opacity: 0 !important;
+    }
+  }
+
+  &:is(h3) {
+    z-index: 4;
+    color: color.adjust($purple, $lightness: 2%);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &:is(h4) {
+    z-index: 3;
+    color: color.adjust($purple, $lightness: 8%);
+  }
+
+  &:is(h5) {
+    z-index: 2;
+    color: color.adjust($purple, $lightness: 16%);
+  }
+
+  &:is(h6) {
+    z-index: 1;
+    color: color.adjust($purple, $lightness: 24%);
+  }
+
+  &:first-of-type {
+    margin-top: 1em !important;
   }
 }

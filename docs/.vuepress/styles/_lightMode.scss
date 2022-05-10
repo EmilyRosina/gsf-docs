@@ -1,20 +1,20 @@
-@import "vars";
+@import "./vars";
 
 // https://v2.vuepress.vuejs.org/reference/default-theme/styles.html#palette-file
 
 :root {
   // ---[ BRAND COLORS ]--- //
-  --c-brand: #7355ea;
-  --c-brand-light: #3370ea;
-  --gsf-blue: #3370ea;
-  --gsf-blue-light: #1e90ff;
-  --gsf-purple: #7355ea;
+  --c-brand: #{$purple};
+  --c-brand-light: #{$blue};
+  --gsf-blue: #{$blue};
+  --gsf-blue-light: #{$secondary};
+  --gsf-purple: #{$purple};
   --gsf-purple-light: #8368f0;
 
   // ---[ BACKGROUND COLORS ]--- //
   --c-bg: #fff;
   --c-bg-lightest: #f8f8f8;
-  --c-bg-lighter: #eee;
+  --c-bg-lighter: #{grey-light};
   --c-bg-light: #f3f4f5;
   --c-bg-navbar: #eff6ff;
   --c-bg-sidebar: #eff6ff;
@@ -25,6 +25,12 @@
       160deg,
       rgb(51 112 234 / 30%) 33.39%,
       rgb(213 79 240 / 30%) 87.4%
+    );
+  --gsf-purple-gradient-bg:
+    linear-gradient(
+      to right,
+      #{rgba($purple, 0.25)},
+      #{rgba($purple, 0)} 75%
     );
   --gsf-sidebar-item-hover: #c9deff;
 

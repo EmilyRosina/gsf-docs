@@ -1,11 +1,11 @@
-@import "vars";
+@import "./vars";
 
 // https://v2.vuepress.vuejs.org/reference/default-theme/styles.html#palette-file
 
 html.dark {
   // ---[ BRAND COLORS ]--- //
-  --c-brand: #7355ea;
-  --c-brand-light: #3370ea;
+  --c-brand: #{$purple};
+  --c-brand-light: #{$blue};
 
   // ---[ BACKGROUND COLORS ]--- //
   --c-bg: #111;

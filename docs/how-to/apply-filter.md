@@ -5,9 +5,19 @@ sidebarDepth: 0
 
 # Apply a Filter
 
-### Via Filters Menu
+## Via Filters Menu
 
-1. Open the [Filters Menu](/elements/filters-menu/)
-2. Click on any filter you have saved.
-3. The [Search Bar](/elements/search-bar/) will now show a tag with the filter's name you selected, e.g.: <GsfFilterTag :filter="{ name: 'Bugs' }"/>.
-   <br>Your results will now be those matching the query of your selected filter.
+<Row>
+	<Col>
+    <ol>
+      <li>Open the <router-link to="/elements/filters-menu/">Filters Menu</router-link>.</li>
+      <li>Click on any filter you have saved.</li>
+      <li>The <router-link to="/elements/search-bar/">Search Bar</router-link> will now show a tag with the filter's name you selected, e.g.: <GsfFilterTag :filter="{ name: 'Enhancements' }"/>.</li>
+      <br>Your results will now be those matching the query of your selected filter.
+    </ol>
+  </Col>
+
+  <Col>
+    <GsfFiltersMenu width="100%"/>
+  </Col>
+</Row>

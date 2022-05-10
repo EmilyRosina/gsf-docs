@@ -5,8 +5,8 @@ sidebarDepth: 1
 
 # Filters Menu
 
-### Filters
+## Filters
 
-### Search & Options
+## Search & Options
 
-### Additional actions
+## Additional actions

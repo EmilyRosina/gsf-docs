@@ -5,7 +5,7 @@ sidebarDepth: 0
 
 # Edit a Filter
 
-### Via the Search Bar
+## Via the Search Bar
 
 <GsfSearchBar
   variant="repo"
@@ -17,7 +17,7 @@ sidebarDepth: 0
 1. Make your changes.
 1. Click the <GsfButton theme="success" sm>Save</GsfButton> button.
 
-### Via the Filters Menu
+## Via the Filters Menu
 
 <Row>
   <Col>

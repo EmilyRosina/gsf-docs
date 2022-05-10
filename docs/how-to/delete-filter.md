@@ -5,7 +5,7 @@ sidebarDepth: 0
 
 # Delete a Filter
 
-### Via Search Bar
+## Via Search Bar
 
 <GsfSearchBar
   variant="repo"
@@ -16,7 +16,7 @@ sidebarDepth: 0
 1. Click the <GsfButton theme="error" sm>Delete</GsfButton> button to open the delete modal.
 1. Click the <GsfButton theme="error" sm>Delete filter</GsfButton> button to confirm deletion.
 
-### Via Filters Menu
+## Via Filters Menu
 
 <Row>
   <Col>

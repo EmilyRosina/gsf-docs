@@ -4,21 +4,21 @@ title: Popup
 
 # Popup
 
-### Options / New Changes
+## Options / New Changes
 
 Will open the [Options](/elements/options/) page, landing on the **Changelog**.
 
-### Docs
+## Docs
 
 Links you to ✨**this docs site**✨.
 
-### Domain URL
+## Domain URL
 
 *If you don't use Github enterprise, don't worry about this - as all links default to `github.com`.*
 
 Basically I use this for the prefix for all links on the popup, in order to link you to the correct repos/global pages. So if you use a Github Enterprise domain regularly, your links in this popup to each repo will still work 🎉.
 
-
+## Filter links
 
 ### Global filters
 
