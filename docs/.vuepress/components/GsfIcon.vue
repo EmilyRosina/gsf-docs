@@ -26,7 +26,7 @@ export default {
     },
     size: {
       type: [String, Number],
-      default: '16',
+      default: 'auto',
     },
   },
   computed: {

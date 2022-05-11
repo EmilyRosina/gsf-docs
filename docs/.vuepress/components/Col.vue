@@ -1,5 +1,9 @@
 <template>
-  <div :class="['col', {}]">
+  <div
+    :class="['col', {}]"
+    :style="{
+      ...(width ? { width } : {})
+    }">
     <slot/>
   </div>
 </template>
@@ -7,6 +11,12 @@
 <script>
 export default {
   name: 'Col',
+  props: {
+    width: {
+      type: String,
+      default: '50%',
+    }
+  }
 }
 </script>
 

@@ -32,8 +32,6 @@ sidebarDepth: 0
   </Col>
 
   <Col>
-    <GsfSearchBar
-      variant="repo"
-      width="100%"/>
+    <GsfFiltersMenu width="100%"/>
   </Col>
 </Row>

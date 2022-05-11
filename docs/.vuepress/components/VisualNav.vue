@@ -8,6 +8,14 @@
         variant="repo"
         width="100%"/>
     </router-link>
+
+    <router-link
+      class="visual-nav__filters-menu"
+      to="/elements/filters-menu/"
+      data-label="Filters Menu"
+      style="width: 50%;">
+      <GsfFiltersMenu width="100%"/>
+    </router-link>
   </div>
 </template>
 
@@ -47,5 +55,10 @@ a {
       opacity: 1;
     }
   }
+}
+
+.visual-nav {
+  display: grid;
+  grid-gap: 2em;
 }
 </style>
