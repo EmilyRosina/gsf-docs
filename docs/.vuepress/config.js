@@ -67,7 +67,7 @@ module.exports = {
           '/how-to/apply-filter',
           '/how-to/edit-filter',
           '/how-to/delete-filter',
-          '/how-to/share-filter',
+          '/how-to/share-filters',
         ],
       },
       {

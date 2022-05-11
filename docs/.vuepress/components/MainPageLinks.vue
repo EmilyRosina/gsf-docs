@@ -57,8 +57,8 @@ export default {
             icon: 'deleteFilter',
           },
           {
-            name: 'Share a Filter',
-            to: '/how-to/share-filter/',
+            name: 'Share Filters',
+            to: '/how-to/share-filters/',
             icon: 'shareFilter',
           },
         ],

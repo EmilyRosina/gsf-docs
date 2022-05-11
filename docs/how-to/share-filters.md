@@ -1,12 +1,12 @@
 ---
-title: Sharing Filters
+title: Share Filters
 sidebarDepth: 0
 tags:
    - one
    - multiple
 ---
 
-# Sharing Filters
+# Share Filters
 
 ## Share one filter
 > This is actually just the query you'll be sharing, the name etc won't share.
