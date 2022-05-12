@@ -1,27 +1,48 @@
 <template>
-  <div class="visual-nav">
+  <div :class="['visual-nav', { 'visual-nav--is-hovering-element': hoveredElement !== '' }]">
     <router-link
-      class="visual-nav__search-bar"
+      :class="['visual-nav__element visual-nav__element--search-bar', {
+        'visual-nav--unhovered-element': hoveredElement !== 'search-bar'
+      }]"
       to="/elements/search-bar/"
-      data-label="Search Bar">
+      data-label="Search Bar"
+      @mouseenter="hoveredElement = 'search-bar'"
+      @mouseleave="hoveredElement = ''">
       <GsfSearchBar
         variant="repo"
         width="100%"/>
     </router-link>
 
     <router-link
-      class="visual-nav__filters-menu"
+      :class="['visual-nav__element visual-nav__element--filters-menu', {
+        'visual-nav--unhovered-element': hoveredElement !== 'filters-menu'
+      }]"
       to="/elements/filters-menu/"
       data-label="Filters Menu"
-      style="width: 50%;">
+      @mouseenter="hoveredElement = 'filters-menu'"
+      @mouseleave="hoveredElement = ''">
       <GsfFiltersMenu width="100%"/>
+    </router-link>
+
+    <router-link
+      :class="['visual-nav__element visual-nav__element--dates-menu', {
+        'visual-nav--unhovered-element': hoveredElement !== 'dates-menu'
+      }]"
+      to="/elements/dates-menu/"
+      data-label="Dates Menu"
+      @mouseenter="hoveredElement = 'dates-menu'"
+      @mouseleave="hoveredElement = ''">
+      <GsfDatesMenu width="100%" is-valid is-range :populated-dates="['from', 'to']"/>
     </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VisualNav'
+  name: 'VisualNav',
+  data: () => ({
+    hoveredElement: '',
+  })
 }
 </script>
 
@@ -33,6 +54,10 @@ a {
   transition: none;
   border: 1px solid transparent;
   border-radius: 10px;
+
+  :deep > * {
+    text-decoration: none !important;
+  }
 
   &::before {
     content: attr(data-label);
@@ -59,6 +84,29 @@ a {
 
 .visual-nav {
   display: grid;
-  grid-gap: 2em;
+  grid-template-areas:
+    "search-bar search-bar"
+    "filters-menu dates-menu"
+    "filters-menu .";
+
+  &__element {
+    transition: opacity 0.25s ease-out;
+
+    &--search-bar {
+      grid-area: search-bar;
+    }
+
+    &--filters-menu {
+      grid-area: filters-menu;
+    }
+
+    &--dates-menu {
+      grid-area: dates-menu;
+    }
+  }
+
+  &--is-hovering-element .visual-nav--unhovered-element {
+    opacity: 0.25;
+  }
 }
 </style>

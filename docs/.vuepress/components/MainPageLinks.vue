@@ -1,26 +1,40 @@
 <template>
-<div class="links">
-  <!-- Source: https://codepen.io/dbenmore/pen/ExVxeyv -->
-  <ul
-    class="links__list"
-    :style="`--item-total:${pageLinks.length}`">
-    <li
-      v-for="(link, index) of pageLinks"
-      :key="index"
-      class="links__item"
-      :style="`--item-count:${index++}`">
-      <router-link
-        class="links__link"
-        :to="link.to">
-        <GsfIcon
-          class="links__icon"
-          :icon="link.icon"
-          size="50"/>
-        <span class="links__text">{{ link.name }}</span>
-      </router-link>
-    </li>
-  </ul>
-</div>
+  <div class="main-page-links">
+    <div class="links">
+      <!-- Source: https://codepen.io/dbenmore/pen/ExVxeyv -->
+      <ul
+        class="links__list"
+        :style="`--item-total:${pageLinks.length}`">
+        <li
+          v-for="(link, index) of pageLinks"
+          :key="index"
+          class="links__item"
+          :style="`--item-count:${index++}`"
+          @mouseenter="elementPreview = link.elementPreview ?? ''"
+          @mouseleave="elementPreview = ''">
+          <router-link
+            class="links__link"
+            :to="link.to">
+            <GsfIcon
+              class="links__icon"
+              :icon="link.icon"
+              size="50"/>
+            <span class="links__text">{{ link.name }}</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+    <div class="element-preview">
+      <GsfDatesMenu
+        :class="['element', { 'element--visible': elementPreview === 'dates-menu' }]"/>
+      <GsfFiltersMenu
+        :class="['element', { 'element--visible': elementPreview === 'filters-menu' }]"
+        height="420px"/>
+      <GsfSearchBar
+        :class="['element', { 'element--visible': elementPreview === 'search-bar' }]"
+        width="100%"/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -32,6 +46,9 @@ export default {
       required: true,
     }
   },
+  data: () => ({
+    elementPreview: '',
+  }),
   computed: {
     pageLinks () {
       return {
@@ -67,11 +84,13 @@ export default {
             name: 'Search Bar',
             to: '/elements/search-bar/',
             icon: 'searchBar',
+            elementPreview: 'search-bar',
           },
           {
             name: 'Filters Menu',
             to: '/elements/filters-menu/',
             icon: 'filtersMenu',
+            elementPreview: 'filters-menu',
           },
           {
             name: 'Filter Form',
@@ -82,6 +101,7 @@ export default {
             name: 'Dates Menu',
             to: '/elements/dates-menu/',
             icon: 'datesMenu',
+            elementPreview: 'dates-menu',
           },
           {
             name: 'Popup',
@@ -221,6 +241,25 @@ export default {
     width: calc(var(--base-grid) * 8);
     height: calc(var(--base-grid) * 8);
     transition: all 0.2s ease-in-out;
+  }
+}
+
+.element-preview {
+  display: grid;
+  grid-template-areas: "element";
+  justify-items: center;
+  align-items: flex-start;
+  margin-top: 2em;
+
+  .element {
+    grid-area: element;
+    transition: none;
+    opacity: 0;
+
+    &--visible {
+      transition: opacity 0.5s ease-in;
+      opacity: 1;
+    }
   }
 }
 

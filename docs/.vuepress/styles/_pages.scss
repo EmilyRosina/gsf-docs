@@ -1,17 +1,17 @@
 @use "sass:color";
 
+a:where(:hover, :active, :focus) {
+  text-decoration: none !important;
+}
+
 .page,
 .home .feature {
   a:not(.header-anchor) {
     color: $pink;
 
-    /* stylelint-disable no-descending-specificity */
-    &:active,
-    &:focus,
-    &:hover {
+    &:where(:active, :focus, :hover) {
       color: $pink-dark;
     }
-    /* stylelint-enable no-descending-specificity */
   }
 }
 
@@ -96,7 +96,7 @@
           color: $blue;
         }
 
-        a {
+        :is(a) {
           transition: color 0.25s ease-in;
           color: $blue;
 
