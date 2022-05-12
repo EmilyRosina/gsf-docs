@@ -7,27 +7,15 @@ sidebarDepth: 1
 
 ## Icons
 
-<table>
-  <thead align="left">
-    <th>Actions</th>
-    <th>Tags</th>
-  </thead>
-  <tr>
-    <td valign="top">
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li><GsfIcon icon="heartOutline"/> unsaved filter</li>
-        <li><GsfIcon icon="heart"/> saved filter</li>
-        <li><GsfIcon icon="lock"/> <i>cannot save</i></li>
-      </ul>
-    </td>
-    <td valign="top">
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li><GsfIcon icon="github"/> Github filter</li>
-        <li><GsfIcon icon="repo"/> Repo filter</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+:::: simple-table
+
+|Actions                                      |Tags                                  |
+|:--------------------------------------------|:-------------------------------------|
+|<GsfIcon icon="heartOutline"/> unsaved filter|<GsfIcon icon="github"/> Github filter|
+|<GsfIcon icon="heart"/> saved filter         |<GsfIcon icon="repo"/> Repo filter    |
+|<GsfIcon icon="lock"/> _cannot save_         |                                      |
+
+::::
 
 ## Unsaved filters
 

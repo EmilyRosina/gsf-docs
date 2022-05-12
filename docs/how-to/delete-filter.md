@@ -18,18 +18,12 @@ sidebarDepth: 0
 
 ## Via Filters Menu
 
-<Row>
-  <Col>
-    <ol>
-      <li>Open the <router-link to="/elements/filters-menu/">Filters Menu</router-link>.</li>
-      <li>Find the filter you want to delete.</li>
-      <li>Hovering over the filter will reveal the <GsfIcon icon="trash" color="#CB2431"/>.</li>
-      <li>Click the <GsfIcon icon="trash" color="#CB2431"/> to open the delete modal.</li>
-      <li>Click the  <GsfButton theme="error" sm>Delete filter</GsfButton> button to confirm deletion.</li>
-    </ol>
-  </Col>
+:::: flex
+1. Open the <router-link to="/elements/filters-menu/">Filters Menu</router-link>.
+1. Find the filter you want to delete.
+1. Hovering over the filter will reveal the <GsfIcon icon="trash" color="#CB2431"/>.
+1. Click the <GsfIcon icon="trash" color="#CB2431"/> to open the delete modal.
+1. Click the  <GsfButton theme="error" sm>Delete filter</GsfButton> button to confirm deletion.
 
-  <Col>
-    <GsfFiltersMenu width="100%"/>
-  </Col>
-</Row>
+<GsfFiltersMenu width="100%"/>
+::::

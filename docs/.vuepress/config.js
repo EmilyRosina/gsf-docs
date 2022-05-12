@@ -1,4 +1,5 @@
 const { path } = require('@vuepress/utils')
+const { containerPlugin } = require('@vuepress/plugin-container')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 const isStaging = process.env?.DEPLOY_PRIME_URL?.includes('develop')
@@ -23,6 +24,18 @@ module.exports = {
       {
         componentsDir: path.resolve(__dirname, './components'),
       }
+    ],
+    [
+      containerPlugin({
+        type: 'flex',
+        before: (itemCount) => `<div class="gsf-flex" style="--item-total: ${itemCount || 2};">\n`,
+        after: () => `</div>\n`,
+      }),
+    ],
+    [
+      containerPlugin({
+        type: 'simple-table',
+      })
     ]
   ],
   alias: {

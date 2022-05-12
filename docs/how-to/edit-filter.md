@@ -19,19 +19,13 @@ sidebarDepth: 0
 
 ## Via the Filters Menu
 
-<Row>
-  <Col>
-    <ol>
-      <li>Open the <router-link to="/elements/filters-menu/">Filters Menu</router-link>.</li>
-      <li>Find the filter you want to edit.</li>
-      <li>Hovering over the filter will reveal the <GsfIcon icon="edit"/>.</li>
-      <li>Click the <GsfIcon icon="edit"/> to open the <router-link to="/elements/filter-form/">Filter Form</router-link>.</li>
-      <li>Make your changes.</li>
-      <li>Click the <GsfButton theme="success" sm>Save</GsfButton> button.</li>
-    </ol>
-  </Col>
+:::: flex
+1. Open the <router-link to="/elements/filters-menu/">Filters Menu</router-link>.
+1. Find the filter you want to edit.
+1. Hovering over the filter will reveal the <GsfIcon icon="edit"/>.
+1. Click the <GsfIcon icon="edit"/> to open the <router-link to="/elements/filter-form/">Filter Form</router-link>.
+1. Make your changes.
+1. Click the <GsfButton theme="success" sm>Save</GsfButton> button.
 
-  <Col>
-    <GsfFiltersMenu width="100%"/>
-  </Col>
-</Row>
+<GsfFiltersMenu width="100%"/>
+::::

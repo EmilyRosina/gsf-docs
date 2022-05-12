@@ -1,0 +1,58 @@
+/* ===[ Custom containers ]=== */
+.gsf-flex {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+
+  > * {
+    flex: 1 1 calc(100% / var(--item-total));
+
+    &:not(:last-child) {
+      padding-right: 1em;
+    }
+  }
+
+  + .gsf-flex {
+    margin-top: 1em;
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+
+    > * {
+      flex: 1 0 100%;
+
+      &:not(ol):not(ul) {
+        margin: auto;
+      }
+
+      &:not(:first-child) {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+.simple-table {
+  td,
+  tr {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  td {
+    padding: 0.25em 1em;
+  }
+
+  tr:first-child td {
+    padding-top: 0.75em;
+  }
+
+  tr:last-child td {
+    padding-bottom: 0.75em;
+  }
+
+  tr:last-child {
+    border-bottom: 1px solid var(--c-border-dark);
+  }
+}
