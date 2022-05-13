@@ -180,3 +180,7 @@ a:where(:hover, :active, :focus) {
 body {
   @extend %scrollbars-blue-pink;
 }
+
+.back-to-top.back-to-top {
+  bottom: 8rem;
+}
