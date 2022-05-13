@@ -24,7 +24,10 @@ const links =[
           class="sidebar-header-logo__image"
           src="/logo.png"
           alt="Github Saved Filters">
-        <span class="sidebar-header-logo__text">Github Saved Filters</span>
+        <span class="sidebar-header-logo__text">
+          <span class="sidebar-header-logo__title">Github Saved Filters</span>
+          <span class="sidebar-header-logo__subtitle">Docs</span>
+        </span>
       </router-link>
     </template>
 
@@ -82,10 +85,23 @@ const links =[
   }
 
   &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title,
+  &__subtitle {
     margin-left: 10px;
-    color: var(--gsf-text-stark);
     font-size: 16px;
     font-weight: 400;
+  }
+
+  &__title {
+    color: var(--gsf-text-stark);
+  }
+
+  &__subtitle {
+    color: var(--c-text-light);
   }
 }
 
