@@ -1,5 +1,11 @@
 <template>
-  <div class="filters-menu">
+  <div
+    :class="[`filters-menu show-queries--${showQueries}`, {
+      showcasing: !!showcase,
+      [`showcasing--${showcase}`]: !!showcase,
+      'show-queries': showQueries !== 'never',
+    }]"
+    :style="{ fontSize: `${fontSize}%` }">
     <div class="filters-menu__header">
       <img src="/logo.png">
       <span class="input">Search saved filters...</span>
@@ -17,80 +23,88 @@
       <span class="option">
         <span class="option__label">Show query</span>
         <span class="option__items">
-          <span>On hover</span>
-          <span>Always</span>
-          <span class="selected">Never</span>
+          <span class="show-queries-on-hover">On hover</span>
+          <span class="show-queries-always">Always</span>
+          <span class="show-queries-never">Never</span>
         </span>
       </span>
     </div>
-    <div class="filters-menu__pinned">
+
+    <div v-if="!hidePinned" class="filters-menu__pinned">
       <div class="filter pinned-filter">
         <GsfIcon icon="pin"/>
         <GsfIcon icon="repo"/>
         <span class="name">Bugs</span>
+        <span class="query">is:open label:bug</span>
       </div>
     </div>
+
     <div class="filters-menu__global">
       <header>
         <span class="title">Saved Global Filters</span>
-        <span class="count">2</span>
+        <span class="count">{{ globalFilters.length }}</span>
       </header>
-      <span class="filter">My issues this week</span>
-      <span class="filter">My issues this month</span>
-    </div>
-    <div class="filters-menu__repo">
-      <header>
-        <span class="title">Saved Repo Filters</span>
-        <span class="count">4</span>
-      </header>
-      <span class="filter">
-        <GsfIcon icon="repo"/>
-        Chores
-      </span>
-      <span :class="['filter', { 'filter--selected': !hideHovered }]">
-        <GsfIcon icon="repo"/>
-        Enhancements
-        <span class="actions">
+      <span
+        v-for="{ name, query, selected } of globalFilters"
+        :key="`globalFilter:${name}`"
+        :class="['filter global-filter', { 'filter--selected': selected }]">
+        {{ name }}
+        <span
+          v-if="selected"
+          class="actions">
            <GsfIcon icon="trash"/>
            <GsfIcon icon="edit"/>
            <GsfIcon icon="pin"/>
         </span>
-      </span>
-      <span class="filter">
-        <GsfIcon icon="repo"/>
-        Needs spec
-      </span>
-      <span class="filter">
-        <GsfIcon icon="repo"/>
-        Opened this week
+        <span class="query">{{ query }}</span>
       </span>
     </div>
+
+    <div class="filters-menu__repo">
+      <header>
+        <span class="title">Saved Repo Filters</span>
+        <span class="count">{{ repoFilters.length }}</span>
+      </header>
+      <span
+        v-for="{ name, query, selected } of repoFilters"
+        :key="`repoFilter:${name}`"
+        :class="['filter', { 'filter--selected': selected }]">
+        <GsfIcon icon="repo"/>
+        {{ name }}
+        <span
+          v-if="selected"
+          class="actions">
+           <GsfIcon icon="trash"/>
+           <GsfIcon icon="edit"/>
+           <GsfIcon icon="pin"/>
+        </span>
+        <span class="query">{{ query }}</span>
+      </span>
+    </div>
+
     <div class="filters-menu__default">
       <header>
         <span class="title">Default Filters</span>
+        <span class="count">{{ defaultFilters.length }}</span>
       </header>
-      <span class="filter">
+      <span
+        v-for="{ name, query, selected } of defaultFilters"
+        :key="`defaultFilter:${name}`"
+        :class="['filter', { 'filter--selected': selected }]">
         <GsfIcon icon="github"/>
-        Everything assigned to you
-      </span>
-      <span class="filter">
-        <GsfIcon icon="github"/>
-        Everything mentioning you
-      </span>
-      <span class="filter">
-        <GsfIcon icon="github"/>
-        Open issues
-      </span>
-      <span class="filter">
-        <GsfIcon icon="github"/>
-        Open issues and pull requests
-      </span>
-      <span class="filter">
-        <GsfIcon icon="github"/>
-        Your issues
+        {{ name }}
+        <span
+          v-if="selected"
+          class="actions">
+           <GsfIcon icon="trash"/>
+           <GsfIcon icon="edit"/>
+           <GsfIcon icon="pin"/>
+        </span>
+        <span class="query">{{ query }}</span>
       </span>
     </div>
-    <div class="filters-menu__link">
+
+    <div class="filters-menu__link filters-menu__link--import">
       <GsfIcon icon="symlink"/>
       Import filters
     </div>
@@ -117,6 +131,76 @@ export default {
       type: Boolean,
       default: false
     },
+    hidePinned: {
+      type: Boolean,
+      default: false
+    },
+    showQueries: {
+      type: String,
+      default: 'never',
+    },
+    showcase: {
+      type: String,
+      default: '',
+    },
+    mini: {
+      type: Boolean,
+      default: false,
+    },
+    fontSize: {
+      type: [Number, String],
+      default: 110,
+    },
+  },
+  computed: {
+    globalFilters () {
+      const filters = [
+        {
+          name: 'High bugs',
+          query: 'is:open label:bug label:high',
+        },
+        {
+          name: 'My closed items this month',
+          query: 'assignee:@me closed:>2022-05-01 closed:<2022-06-01',
+        },
+      ]
+      return this.mini ? filters.slice(0, 2) : filters
+    },
+    repoFilters () {
+      const filters = [
+        {
+          name: 'My Chores',
+          query: 'is:open label:chores assignee:@me',
+        },
+        {
+          name: 'Enhancements',
+          query: 'is:open label:enhancement',
+          selected: !this.hideHovered,
+        },
+        {
+          name: 'Opened this week',
+          query: 'is:issue is:open created:>2022-05-16',
+        },
+      ]
+      return this.mini ? filters.slice(0, 2) : filters
+    },
+    defaultFilters () {
+      const filters = [
+        {
+          name: 'Everything assigned to you',
+          query: 'is:open assignee:@me',
+        },
+        {
+          name: 'Everything mentioning you',
+          query: 'is:open mentions:@me',
+        },
+        {
+          name: 'Open issues and pull requests',
+          query: 'is:open',
+        },
+      ]
+      return this.mini ? filters.slice(0, 2) : filters
+    }
   }
 }
 </script>
@@ -130,7 +214,7 @@ export default {
   --gsf-filters-menu-border: #888;
   --gsf-filters-menu-highlight: #586069;
   --gsf-filters-menu-selected: #ddd;
-  --gsf-dates-menu-trash-color: #{$error};
+  --gsf-filters-menu-trash-color: #{$error};
 }
 
 html.dark {
@@ -139,7 +223,7 @@ html.dark {
   --gsf-filters-menu-border: #586069;
   --gsf-filters-menu-highlight: #bababa;
   --gsf-filters-menu-selected: #373e47;
-  --gsf-dates-menu-trash-color: #f9606c;
+  --gsf-filters-menu-trash-color: #f9606c;
 }
 </style>
 
@@ -152,7 +236,7 @@ html.dark {
   border: 1px solid var(--gsf-filters-menu-border);
   border-radius: 0.5em;
   background: var(--gsf-filters-menu-bg);
-  font-size: 105%;
+  color: var(--c-text);
   user-select: none;
 
   &__header {
@@ -279,7 +363,7 @@ html.dark {
           }
 
           :is(.gsf-trash-icon) {
-            color: var(--gsf-dates-menu-trash-color);
+            color: var(--gsf-filters-menu-trash-color);
           }
         }
       }
@@ -325,7 +409,70 @@ html.dark {
   }
 
   .filter {
+    flex-wrap: wrap;
     cursor: pointer;
+
+    .query {
+      display: none;
+      padding-left: 2.1em;
+      font-size: 0.8em;
+    }
+
+    &.pinned-filter .query {
+      padding-left: 2.6em;
+    }
+
+    &.global-filter .query {
+      padding-left: 0;
+    }
+  }
+
+  &.showcasing {
+    &--links {
+      .filters-menu {
+        &__header,
+        &__options,
+        &__pinned,
+        &__global,
+        &__repo,
+        &__default {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+
+  %selected-query-option {
+    background: var(--gsf-filters-menu-highlight);
+    color: var(--gsf-filters-menu-bg);
+  }
+
+  &.show-queries--never {
+    .option .show-queries-never {
+      @extend %selected-query-option;
+    }
+  }
+
+  &.show-queries--always {
+    .filter .query {
+      display: block;
+      width: 100%;
+    }
+
+    .option .show-queries-always {
+      @extend %selected-query-option;
+    }
+  }
+
+  &.show-queries--on-hover {
+    .filter--selected .query {
+      display: block;
+      width: 100%;
+    }
+
+    .option .show-queries-on-hover {
+      @extend %selected-query-option;
+    }
   }
 }
 </style>
