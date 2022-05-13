@@ -9,6 +9,7 @@ sidebarDepth: 0
 
 <GsfSearchBar
    variant="new"
+   query="is:open is:issue label:enhancement"
    width="100%"/>
 
 1. Click the <GsfIcon icon="heartOutline"/> within the [Search Bar](/elements/search-bar/).
@@ -23,3 +24,8 @@ sidebarDepth: 0
        > - **Repo**: will only show your filter in the current repo.
 1. Click the <GsfButton theme="success" sm>Save</GsfButton> button.
 1. Now the <GsfIcon icon="heartOutline"/> will have changed to a <GsfIcon icon="heart"/>.
+
+<GsfSearchBar
+   variant="repo"
+   name="Enhancements"
+   width="100%"/>

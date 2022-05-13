@@ -2,8 +2,9 @@
   <span :class="['gsf-filter-tag', { 'gsf-filter-tag--not-block': notBlock }]">
     <GsfIcon
       v-if="icon"
+      :icon="icon"
       class="gsf-filter-tag__icon"
-      :icon="icon"/>
+      size="auto"/>
     <span class="gsf-filter-tag__text">{{ filter.name }}</span>
   </span>
 </template>
@@ -44,13 +45,12 @@ export default {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  max-width: 200px;
   height: 100%;
-  padding: 0 0.5em;
-  border-radius: 3px;
-  background: $grey-mid;
+  padding: 0.4em 0.5em;
+  border-radius: 0.3em;
+  background: #2b313a;
   color: #fff;
-  font-size: 12px;
+  font-size: 0.9em;
 
   &--not-block {
     background: none;
@@ -58,20 +58,20 @@ export default {
   }
 
   &__icon {
-    margin-right: 3px;
+    width: 1.1em !important;
+    height: 1.1em !important;
+    margin-right: 0.4em;
 
     :deep(.gsf-icon) {
-      width: 13px;
-      height: 13px;
-
       &.gsf-repo-icon {
-        margin-left: -2px;
+        margin-left: -0.1em;
       }
     }
   }
 
   &__text {
     display: inline-block;
+    line-height: 0.8em;
     white-space: nowrap;
   }
 }

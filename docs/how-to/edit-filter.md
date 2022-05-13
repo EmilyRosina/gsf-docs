@@ -9,8 +9,8 @@ sidebarDepth: 0
 
 <GsfSearchBar
   variant="repo"
-  width="100%"
-  highlight="input__action-icon"/>
+  name="Enhancements"
+  width="100%"/>
 
 1. The query you want to edit must be active in the [Search Bar](/elements/search-bar/).
 1. Click the <GsfIcon icon="heart"/> to open the [Edit filter form](/elements/filter-form/).

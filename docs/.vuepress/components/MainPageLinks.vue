@@ -32,6 +32,7 @@
         height="420px"/>
       <GsfSearchBar
         :class="['element', { 'element--visible': elementPreview === 'search-bar' }]"
+        variant="repo"
         width="100%"/>
     </div>
   </div>

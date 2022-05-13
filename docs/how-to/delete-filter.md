@@ -9,6 +9,7 @@ sidebarDepth: 0
 
 <GsfSearchBar
   variant="repo"
+  name="Enhancements"
   width="100%"/>
 
 1. The query you want to delete must be active in the [Search Bar](/elements/search-bar/).

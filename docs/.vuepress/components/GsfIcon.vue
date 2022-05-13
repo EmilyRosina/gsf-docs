@@ -2,8 +2,8 @@
   <span
     class="gsf-icon"
     :style="`
-      width: ${size}px;
-      height: ${size}px;
+      ${size !== 'auto' ? `width: ${size}px` : ''};
+      ${size !== 'auto' ? `height: ${size}px` : ''};
       ${color ? `color: ${color};` : ''}
     `"
     v-html="theIcon"/>
@@ -40,6 +40,9 @@ export default {
 <style lang="scss" scoped>
 .gsf-icon {
   display: inline-flex;
+  justify-content: center;
+  width: 1.25em;
+  height: 1.25em;
   fill: currentColor;
   vertical-align: middle;
   cursor: pointer;
