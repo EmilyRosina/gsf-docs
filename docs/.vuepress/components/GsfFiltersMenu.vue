@@ -108,11 +108,11 @@
       <GsfIcon icon="symlink"/>
       Import filters
     </div>
-    <div class="filters-menu__link">
+    <div class="filters-menu__link filters-menu__link--backup">
       <GsfIcon icon="backupRestore"/>
       Backup filters
     </div>
-    <div class="filters-menu__link">
+    <div class="filters-menu__link filters-menu__link--docs">
       <GsfIcon icon="externalLink"/>
       View advanced search syntax
     </div>
@@ -233,6 +233,7 @@ html.dark {
 .filters-menu {
   width: 20em;
   max-width: 20em;
+  height: auto;
   border: 1px solid var(--gsf-filters-menu-border);
   border-radius: 0.5em;
   background: var(--gsf-filters-menu-bg);
@@ -428,16 +429,52 @@ html.dark {
   }
 
   &.showcasing {
-    &--links {
-      .filters-menu {
-        &__header,
-        &__options,
-        &__pinned,
-        &__global,
-        &__repo,
-        &__default {
-          opacity: 0.2;
-        }
+    $dull-amount: 0.2;
+
+    &--links .filters-menu {
+      &__header,
+      &__options,
+      &__pinned,
+      &__global,
+      &__repo,
+      &__default {
+        opacity: $dull-amount;
+      }
+    }
+
+    &--import .filters-menu {
+      &__header,
+      &__options,
+      &__pinned,
+      &__global,
+      &__repo,
+      &__default,
+      &__link:not(.filters-menu__link--import) {
+        opacity: $dull-amount;
+        cursor: default;
+        user-select: none;
+      }
+
+      &__link--import {
+        border-bottom: 1px solid var(--gsf-filters-menu-border);
+      }
+    }
+
+    &--backup .filters-menu {
+      &__header,
+      &__options,
+      &__pinned,
+      &__global,
+      &__repo,
+      &__default,
+      &__link:not(.filters-menu__link--backup) {
+        opacity: $dull-amount;
+        cursor: default;
+        user-select: none;
+      }
+
+      &__link--backup {
+        border-bottom: 1px solid var(--gsf-filters-menu-border);
       }
     }
   }

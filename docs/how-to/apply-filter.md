@@ -15,3 +15,5 @@ sidebarDepth: 0
 
 <GsfFiltersMenu width="100%"/>
 ::::
+
+<GsfSearchBar variant="repo" name="Enhancements"/>

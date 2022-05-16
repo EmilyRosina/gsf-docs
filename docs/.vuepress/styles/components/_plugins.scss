@@ -2,18 +2,20 @@
 .gsf-flex {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
   margin-bottom: 1em;
 
   > * {
     flex: 1 1 calc(100% / var(--item-total));
+    align-self: flex-start;
 
     &:not(:last-child) {
       padding-right: 1em;
     }
-  }
 
-  + .gsf-flex {
-    margin-top: 1em;
+    > blockquote:first-child {
+      margin-top: 0;
+    }
   }
 
   @media screen and (max-width: 1000px) {
