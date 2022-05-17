@@ -9,9 +9,7 @@ sidebarDepth: 1
 
 > This form will appear after clicking the <GsfIcon icon="heartOutline"/> within the [search bar](/elements/search-bar/).
 
-:::: warning Coming soon...
-TODO: Add `<GsfFilterForm/>`
-::::
+<GsfFilterForm is-new/>
 
 - **Name** Type a suitable name for your filter.
   <br/>*You will be shown an error if you already have a global/repo filter with the same name.*
@@ -31,9 +29,7 @@ TODO: Add `<GsfFilterForm/>`
 > This form will appear after clicking the <GsfIcon icon="heart"/> within the [search bar](/elements/search-bar/),
 > or the <GsfIcon icon="edit"/> within the [filters menu](/elements/filters-menu/)
 
-:::: warning Coming soon...
-TODO: Add `<GsfFilterForm/>`
-::::
+<GsfFilterForm/>
 
 - **Name** Shows your previously chosen name for your filter, of which you can amend.
   <br/>*You will be shown an error if you already have a global/repo filter with the same name.*

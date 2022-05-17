@@ -15,9 +15,7 @@ sidebarDepth: 0
 1. Click the <GsfIcon icon="heartOutline"/> within the [Search Bar](/elements/search-bar/).
 1. The **Create filter** form will pop up.
 
-:::: warning Coming soon...
-TODO: Add `<GsfFilterForm/>`
-::::
+<GsfFilterForm is-new query="is:open is:issue label:enhancement"/>
 
 1. Fill in the following fields
    - **Required**
