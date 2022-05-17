@@ -5,6 +5,7 @@
       'gsf-button--error': theme === 'error',
       'gsf-button--success': theme === 'success',
       'gsf-button--sm': sm,
+      'gsf-button--lg': lg,
     }]"
     :bind="$attrs">
     <slot/>
@@ -27,6 +28,10 @@ export default {
       default: false,
     },
     sm: {
+      type: Boolean,
+      default: false,
+    },
+    lg: {
       type: Boolean,
       default: false,
     },
@@ -141,8 +146,13 @@ export default {
   }
 
   &--sm {
-    padding: 0.1em 0.75em;
-    font-size: 12px;
+    padding: 0.1em 0.65em;
+    font-size: 0.75em;
+  }
+
+  &--lg {
+    padding: 0.35em 0.75em;
+    font-size: 0.75em;
   }
 }
 </style>
