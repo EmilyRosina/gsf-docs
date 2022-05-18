@@ -1,27 +1,66 @@
 ---
 title: Popup
+sidebarDepth: 1
 ---
 
 # Popup
 
-## Options / New Changes
+By pinning the **Github Saved Filters** extension to your extensions bar, you unlock this handy little popup, of which grants you a few nifty shortcuts to take advantage of.
+
+<GsfPopup/>
+
+## Filter links
+
+### Global filters
 
 :::: flex
+<div>
+The following will appear if you have global filters saved for either of these pages.
+The links are here to make accessing these pages easier.
 
-Will open the [Options](/elements/options/) page, landing on the **Changelog**.
+- [Global pulls](https://github.com/pulls)
+- [Global issues](https://github.com/issues)
+</div>
 
-:::::: warning Coming soon...
-TODO: Add `<GsfPopup/>`
-::::::
+<GsfPopup showcase="global-filters"/>
+::::
+
+### Repos that have saved filters
+
+:::: flex
+The following will appear if you have repo specific filters saved.
+The links are here to make accessing these filters for each repo easier.
+
+<GsfPopup showcase="repo-filters"/>
+::::
+
+## Options
+
+### Quick link (no changes)
+
+::: flex
+
+Clicking **Options** open the [Options](/elements/options/) page, landing on the **Changelog**.
+
+<GsfPopup showcase="options"/>
+:::
+
+### When there are extension updates
+
+::: flex
+
+Clicking **New!** will open the [Options](/elements/options/) page, landing on the **Changelog**.
+
+<GsfPopup showcase="options" has-new-changes/>
+:::
 
 ## Docs
 
 :::: flex
 Links you to ✨**this docs site**✨.
 
-:::::: warning Coming soon...
-TODO: Add `<GsfPopup/>`
-::::::
+<GsfPopup showcase="docs"/>
+::::
 
 ## Domain URL
 
@@ -33,34 +72,14 @@ TODO: Add `<GsfPopup/>`
 Basically I use this for the prefix for all links on the popup, in order to link you to the correct repos/global pages. So if you use a Github Enterprise domain regularly, your links in this popup to each repo will still work 🎉.
 </div>
 
-:::::: warning Coming soon...
-TODO: Add `<GsfPopup/>`
-::::::
+<GsfPopup showcase="domain-url"/>
+::::
 
-
-## Filter links
-
-### Global filters
+## Donate a coffee
 
 :::: flex
-<div>
-The following will appear if you have global filters saved for either of these pages.
-The links are here to make accessing these pages easier.
+Links you to my [kofi](https://ko-fi.com/auroraskye) donation page.<br/>
+*All donations are very welcomed and hugely appreciated* ❤️️
 
-- Global Pulls
-- Global Issues
-</div>
-
-:::::: warning Coming soon...
-TODO: Add `<GsfPopup/>`
-::::::
-
-### Repos that have saved filters
-
-:::: flex
-The following will appear if you have repo specific filters saved.
-The links are here to make accessing these filters for each repo easier.
-
-:::::: warning Coming soon...
-TODO: Add `<GsfPopup/>`
-::::::
+<GsfPopup showcase="donate"/>
+::::

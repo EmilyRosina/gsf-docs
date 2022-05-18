@@ -36,7 +36,12 @@ module.exports = {
       containerPlugin({
         type: 'simple-table',
       })
-    ]
+    ],
+    [
+      containerPlugin({
+        type: 'col',
+      })
+    ],
   ],
   alias: {
     // set alias for replaceable components
@@ -81,6 +86,9 @@ module.exports = {
           '/how-to/edit-filter',
           '/how-to/delete-filter',
           '/how-to/share-filters',
+          '/how-to/backup-filters',
+          '/how-to/import-filters',
+          '/how-to/support-github-enterprise',
         ],
       },
       {
@@ -95,18 +103,64 @@ module.exports = {
           },
           {
             text: 'Filters Menu',
-            link: '/elements/filters-menu/',
+            link: '/elements/filters-menu/filters',
             collapsible: true,
+            children: [
+              {
+                text: 'Filters',
+                link: '/elements/filters-menu/filters'
+              },
+              {
+                text: 'Search & Options',
+                link: '/elements/filters-menu/search-and-options'
+              },
+              {
+                text: 'Additional Actions',
+                link: '/elements/filters-menu/additional-actions'
+              },
+            ]
           },
           {
             text: 'Filter Form',
-            link: '/elements/filter-form/',
+            link: '/elements/filter-form/create-filter',
             collapsible: true,
+            children: [
+              {
+                text: 'Create filter',
+                link: '/elements/filter-form/create-filter'
+              },
+              {
+                text: 'Edit filter',
+                link: '/elements/filter-form/edit-filter'
+              },
+            ]
           },
           {
             text: 'Dates Menu',
-            link: '/elements/dates-menu/',
+            link: '/elements/dates-menu/query-a-date',
             collapsible: true,
+            children: [
+              {
+                text: 'Query a date',
+                link: '/elements/dates-menu/query-a-date'
+              },
+              {
+                text: 'Query after date',
+                link: '/elements/dates-menu/query-after-date'
+              },
+              {
+                text: 'Query before date',
+                link: '/elements/dates-menu/query-before-date'
+              },
+              {
+                text: 'Query between 2 dates',
+                link: '/elements/dates-menu/query-between-2-dates'
+              },
+              {
+                text: 'Remove date query',
+                link: '/elements/dates-menu/remove-date-query'
+              },
+            ]
           },
           {
             text: 'Popup',
@@ -116,23 +170,6 @@ module.exports = {
           {
             text: 'Options',
             link: '/elements/options/',
-            collapsible: true,
-          },
-        ]
-      },
-      {
-        text: 'Extras',
-        link: '/extras/',
-        collapsible: true,
-        children: [
-          {
-            text: 'Backup',
-            link: '/extras/backup',
-            collapsible: true,
-          },
-          {
-            text: 'Import',
-            link: '/extras/import',
             collapsible: true,
           },
         ]

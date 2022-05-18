@@ -21,3 +21,7 @@ $secondary: #1e90ff;
 $success-bright: #0f0;
 $success: #068e24;
 $warning: #faa930;
+
+// gradients
+$gradient-border: linear-gradient(105deg, $blue 50%, $pink 75%) 1;
+$gradient-fade-bottom: linear-gradient(to top, rgb(#000, 0), rgb(#000, 1));

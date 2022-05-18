@@ -1,5 +1,6 @@
 ---
 title: Options
+sidebarDepth: 1
 ---
 
 # Options

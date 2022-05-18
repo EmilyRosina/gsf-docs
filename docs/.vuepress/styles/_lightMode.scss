@@ -15,7 +15,7 @@
   --c-bg: #fff;
   --c-bg-lightest: #f8f8f8;
   --c-bg-lighter: #{grey-light};
-  --c-bg-light: #f3f4f5;
+  --c-bg-light: #d9e1e4;
   --c-bg-navbar: #eff6ff;
   --c-bg-sidebar: #eff6ff;
 
@@ -81,64 +81,64 @@
   // ---[ TRANSITION VARS ]--- //
   // --t-color: 0.3s ease;
   // --t-transform: 0.3s ease;
+
+  // ---[ PLUGIN: BACK-TO-TOP ]--- //
+  // .back-to-top {
+  //   --back-to-top-color: var(--c-brand);
+  //   --back-to-top-color-hover: var(--c-brand-light);
+  // }
+
+  // ---[ PLUGIN: DOCSEARCH ]--- //
+  // .DocSearch {
+  //   --docsearch-primary-color: var(--c-brand);
+  //   --docsearch-text-color: var(--c-text);
+  //   --docsearch-highlight-color: var(--c-brand);
+  //   --docsearch-muted-color: var(--c-text-quote);
+  //   --docsearch-container-background: rgba(9, 10, 17, 0.8);
+  //   --docsearch-modal-background: var(--c-bg-light);
+  //   --docsearch-searchbox-background: var(--c-bg-lighter);
+  //   --docsearch-searchbox-focus-background: var(--c-bg);
+  //   --docsearch-searchbox-shadow: inset 0 0 0 2px var(--c-brand);
+  //   --docsearch-hit-color: var(--c-text-light);
+  //   --docsearch-hit-active-color: var(--c-bg);
+  //   --docsearch-hit-background: var(--c-bg);
+  //   --docsearch-hit-shadow: 0 1px 3px 0 var(--c-border-dark);
+  //   --docsearch-footer-background: var(--c-bg);
+  // }
+
+  // ---[ PLUGIN: EXTERNAL-LINK-ICON ]--- //
+  // .external-link-icon {
+  //   --external-link-icon-color: var(--c-text-quote);
+  // }
+
+  // ---[ PLUGIN: MEDIUM-ZOOM ]--- //
+  // .medium-zoom-overlay {
+  //   --medium-zoom-bg-color: var(--c-bg);
+  // }
+
+  // ---[ PLUGIN: NPROGRESS ]--- //
+  // #nprogress {
+  //   --nprogress-color: var(--c-brand);
+  // }
+
+  // ---[ PLUGIN: PWA-POPUP ]--- //
+  // .pwa-popup {
+  //   --pwa-popup-text-color: var(--c-text);
+  //   --pwa-popup-bg-color: var(--c-bg);
+  //   --pwa-popup-border-color: var(--c-brand);
+  //   --pwa-popup-shadow: 0 4px 16px var(--c-brand);
+  //   --pwa-popup-btn-text-color: var(--c-bg);
+  //   --pwa-popup-btn-bg-color: var(--c-brand);
+  //   --pwa-popup-btn-hover-bg-color: var(--c-brand-light);
+  // }
+
+  // ---[ PLUGIN: SEARCH ]--- //
+  // .search-box {
+  //   --search-bg-color: var(--c-bg);
+  //   --search-accent-color: var(--c-brand);
+  //   --search-text-color: var(--c-text);
+  //   --search-border-color: var(--c-border);
+  //   --search-item-text-color: var(--c-text-lighter);
+  //   --search-item-focus-bg-color: var(--c-bg-light);
+  // }
 }
-
-// ---[ PLUGIN: BACK-TO-TOP ]--- //
-// .back-to-top {
-//   --back-to-top-color: var(--c-brand);
-//   --back-to-top-color-hover: var(--c-brand-light);
-// }
-
-// ---[ PLUGIN: DOCSEARCH ]--- //
-// .DocSearch {
-//   --docsearch-primary-color: var(--c-brand);
-//   --docsearch-text-color: var(--c-text);
-//   --docsearch-highlight-color: var(--c-brand);
-//   --docsearch-muted-color: var(--c-text-quote);
-//   --docsearch-container-background: rgba(9, 10, 17, 0.8);
-//   --docsearch-modal-background: var(--c-bg-light);
-//   --docsearch-searchbox-background: var(--c-bg-lighter);
-//   --docsearch-searchbox-focus-background: var(--c-bg);
-//   --docsearch-searchbox-shadow: inset 0 0 0 2px var(--c-brand);
-//   --docsearch-hit-color: var(--c-text-light);
-//   --docsearch-hit-active-color: var(--c-bg);
-//   --docsearch-hit-background: var(--c-bg);
-//   --docsearch-hit-shadow: 0 1px 3px 0 var(--c-border-dark);
-//   --docsearch-footer-background: var(--c-bg);
-// }
-
-// ---[ PLUGIN: EXTERNAL-LINK-ICON ]--- //
-// .external-link-icon {
-//   --external-link-icon-color: var(--c-text-quote);
-// }
-
-// ---[ PLUGIN: MEDIUM-ZOOM ]--- //
-// .medium-zoom-overlay {
-//   --medium-zoom-bg-color: var(--c-bg);
-// }
-
-// ---[ PLUGIN: NPROGRESS ]--- //
-// #nprogress {
-//   --nprogress-color: var(--c-brand);
-// }
-
-// ---[ PLUGIN: PWA-POPUP ]--- //
-// .pwa-popup {
-//   --pwa-popup-text-color: var(--c-text);
-//   --pwa-popup-bg-color: var(--c-bg);
-//   --pwa-popup-border-color: var(--c-brand);
-//   --pwa-popup-shadow: 0 4px 16px var(--c-brand);
-//   --pwa-popup-btn-text-color: var(--c-bg);
-//   --pwa-popup-btn-bg-color: var(--c-brand);
-//   --pwa-popup-btn-hover-bg-color: var(--c-brand-light);
-// }
-
-// ---[ PLUGIN: SEARCH ]--- //
-// .search-box {
-//   --search-bg-color: var(--c-bg);
-//   --search-accent-color: var(--c-brand);
-//   --search-text-color: var(--c-text);
-//   --search-border-color: var(--c-border);
-//   --search-item-text-color: var(--c-text-lighter);
-//   --search-item-focus-bg-color: var(--c-bg-light);
-// }

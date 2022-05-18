@@ -13,22 +13,44 @@ sidebarDepth: 0
    width="100%"/>
 
 1. Click the <GsfIcon icon="heartOutline"/> within the [Search Bar](/elements/search-bar/).
-1. The **Create filter** form will pop up.
+2. The [Create filter form](/elements/filter-form/create-filter) will pop up.
 
-<GsfFilterForm is-new query="is:open is:issue label:enhancement"/>
-
-1. Fill in the following fields
+::: flex
+3. Fill in the following fields
    - **Required**
       - Enter a **name** for your filter.
    - *Optional*
      - Edit your filter **query**.
      - Change the **scope** of your filter.
-       > - **Global**: will show your filter in all repos.
-       > - **Repo**: will only show your filter in the current repo.
-1. Click the <GsfButton theme="success" sm>Save</GsfButton> button.
-1. Now the <GsfIcon icon="heartOutline"/> will have changed to a <GsfIcon icon="heart"/>.
+       > - **Global**: appears for all repos.
+       > - **Repo**: only appears for this repo.
+
+<GsfFilterForm
+   is-new
+   query="is:open is:issue label:enhancement"/>
+:::
+
+::: flex
+4. Click the <GsfButton theme="success" sm>Save</GsfButton> button.
+5. The [Create filter form](/elements/filter-form/create-filter) will now close.
+
+<GsfFilterForm
+   is-new
+   name="Enhancements"
+   query="is:open is:issue label:enhancement"/>
+:::
+
+::: flex
+6. The <GsfIcon icon="heartOutline"/> will have changed to a <GsfIcon icon="heart"/> within the [Search Bar](/elements/search-bar/).
 
 <GsfSearchBar
    variant="repo"
    name="Enhancements"
    width="100%"/>
+:::
+
+::: flex
+7. Your newly created filter will also appear within the [Filters menu](/elements/filters-menu/filters).
+
+<GsfFiltersMenu hide-hovered hide-pinned/>
+:::

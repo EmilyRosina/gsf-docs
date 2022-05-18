@@ -26,14 +26,19 @@
     </div>
     <div class="element-preview">
       <GsfDatesMenu
-        :class="['element', { 'element--visible': elementPreview === 'dates-menu' }]"/>
+        :class="['element', { 'element--visible': elementPreview === 'dates-menu' }]"
+        is-valid
+        :populated-dates="['on']"/>
       <GsfFiltersMenu
         :class="['element', { 'element--visible': elementPreview === 'filters-menu' }]"
-        height="420px"/>
+        mini/>
       <GsfSearchBar
         :class="['element', { 'element--visible': elementPreview === 'search-bar' }]"
-        variant="repo"
-        width="100%"/>
+        variant="repo"/>
+      <GsfFilterForm
+        :class="['element', { 'element--visible': elementPreview === 'filter-form' }]"/>
+      <GsfPopup
+        :class="['element', { 'element--visible': elementPreview === 'popup' }]"/>
     </div>
   </div>
 </template>
@@ -56,28 +61,38 @@ export default {
         howTo: [
           {
             name: 'Create a Filter',
-            to: '/how-to/create-filter/',
+            to: '/how-to/create-filter',
             icon: 'createFilter',
           },
           {
             name: 'Apply a Filter',
-            to: '/how-to/apply-filter/',
+            to: '/how-to/apply-filter',
             icon: 'applyFilter',
           },
           {
             name: 'Edit a Filter',
-            to: '/how-to/edit-filter/',
+            to: '/how-to/edit-filter',
             icon: 'editFilter',
           },
           {
             name: 'Delete a Filter',
-            to: '/how-to/delete-filter/',
+            to: '/how-to/delete-filter',
             icon: 'deleteFilter',
           },
           {
             name: 'Share Filters',
-            to: '/how-to/share-filters/',
+            to: '/how-to/share-filters',
             icon: 'shareFilter',
+          },
+          {
+            name: 'Backup Filters',
+            to: '/how-to/backup-filters',
+            icon: 'backupFilters',
+          },
+          {
+            name: 'Import Filters',
+            to: '/how-to/import-filters',
+            icon: 'importFilters',
           },
         ],
         elements: [
@@ -89,54 +104,52 @@ export default {
           },
           {
             name: 'Filters Menu',
-            to: '/elements/filters-menu/',
+            to: '/elements/filters-menu/filters',
             icon: 'filtersMenu',
             elementPreview: 'filters-menu',
           },
           {
             name: 'Filter Form',
-            to: '/elements/filter-form/',
+            to: '/elements/filter-form/create-filter',
             icon: 'filterForm',
+            elementPreview: 'filter-form',
           },
           {
             name: 'Dates Menu',
-            to: '/elements/dates-menu/',
+            to: '/elements/dates-menu/query-a-date',
             icon: 'datesMenu',
             elementPreview: 'dates-menu',
           },
           {
             name: 'Popup',
-            to: '/elements/popup',
+            to: '/elements/popup/',
             icon: 'popup',
+            elementPreview: 'popup',
           },
           {
             name: 'Options',
-            to: '/elements/options',
+            to: '/elements/options/',
             icon: 'options',
+            elementPreview: 'options',
           },
         ],
-        extras: [
-          {
-            name: 'Backup',
-            to: '/extras/backup/',
-            icon: 'backupFilters',
-          },
-          {
-            name: 'Import',
-            to: '/extras/import/',
-            icon: 'importFilters',
-          },
-        ]
       }[this.pageName]
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "@styles/vars";
+
 :root {
   --base-grid: 8px;
   --link-size: 9em;
+  --mpl-pink: #{$pink};
+}
+
+html.dark {
+  --mpl-pink: #{$pink-dark};
 }
 </style>
 
@@ -153,12 +166,15 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 30em;
+  min-height: 35em;
   overflow: hidden;
   color: var(--c-text);
-  color: $purple;
 
   &__item {
+    --angle: calc(360deg / var(--item-total));
+    --rotation: calc(255deg + var(--angle) * var(--item-count));
+    --spacing: calc(var(--item-total) - calc(var(--item-total) / 2)) * 1.5;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -166,19 +182,24 @@ export default {
     height: var(--link-size);
     margin-top: calc(var(--link-size) / -2);
     margin-left: calc(var(--link-size) / -2);
-    transform: rotate(var(--rotation)) translate(calc(var(--link-size) + var(--base-grid) * 2)) rotate(calc(var(--rotation) * -1));
+    transform:
+      rotate(var(--rotation))
+      translate(calc(var(--link-size) + var(--base-grid) * var(--spacing)))
+      rotate(calc(var(--rotation) * -1));
+  }
 
-    --angle: calc(360deg / var(--item-total));
-    --rotation: calc(140deg + var(--angle) * var(--item-count));
+  &__icon {
+    margin-bottom: 2em;
+    transition: all 0.2s ease-in-out;
   }
 
   &__text {
-    display: none;
     position: absolute;
     bottom: 5em;
     left: 0;
     width: 100%;
-    animation: text 0.2s ease-in-out forwards;
+    transition: all 0.2s ease-in-out;
+    animation: text 1s ease-in-out forwards;
     font-size: 0.9em;
     text-align: center;
   }
@@ -217,17 +238,22 @@ export default {
 
     &:hover {
       background: var(--gsf-gradient-bg);
-      color: $purple;
+      color: var(--mpl-pink);
 
       .links__icon {
+        width: 65px !important;
+        height: 65px !important;
+        margin: 0;
         transform: translateY(calc(var(--base-grid) * -2));
         transition: all 0.2s ease-in-out;
-        color: $pink;
+        color: var(--mpl-pink);
       }
 
       .links__text {
         display: block;
-        color: var(--c-text);
+        bottom: 4.75em;
+        transition: all 0.2s ease-in-out;
+        color: var(--mpl-pink);
       }
 
       &::after {
@@ -247,15 +273,23 @@ export default {
 
 .element-preview {
   display: grid;
+  position: relative;
   grid-template-areas: "element";
   justify-items: center;
   align-items: flex-start;
-  margin-top: 2em;
+  max-height: 200px;
+  overflow: hidden;
+  mask-image: $gradient-fade-bottom;
 
   .element {
     grid-area: element;
     transition: none;
     opacity: 0;
+
+    :deep(*) {
+      cursor: default !important;
+      user-select: none;
+    }
 
     &--visible {
       transition: opacity 0.5s ease-in;
@@ -264,35 +298,32 @@ export default {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 400px) {
+  .links {
+    --link-size: 8em;
+  }
+}
+
+@media screen and (max-width: 860px) {
   .links__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-}
 
-@media screen and (max-width: 600px) {
   .links__item {
     position: relative;
     margin: 10px;
     transform: none;
   }
 
-  .links__text {
-    display: block;
-    bottom: 5.5em;
-    font-size: 0.8em;
-  }
-
   .links__icon {
+    margin-bottom: 0;
     transform: translateY(calc(var(--base-grid) * -2));
   }
-}
 
-@media screen and (max-width: 400px) {
-  .links {
-    --link-size: 8em;
+  .element-preview {
+    display: none;
   }
 }
 
@@ -316,6 +347,10 @@ export default {
 @keyframes text {
   0% {
     transform: scale(0.3) translateY(0);
+    opacity: 0;
+  }
+
+  60% {
     opacity: 0;
   }
 

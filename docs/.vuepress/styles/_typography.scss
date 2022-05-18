@@ -103,23 +103,23 @@ h6 {
   &:is(h3) {
     z-index: 4;
     color: color.adjust($purple, $lightness: 2%);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
   }
 
   &:is(h4) {
     z-index: 3;
-    color: color.adjust($purple, $lightness: 8%);
+    color: color.adjust($purple, $lightness: 10%);
   }
 
   &:is(h5) {
     z-index: 2;
-    color: color.adjust($purple, $lightness: 16%);
+    color: color.adjust($purple, $lightness: 20%);
   }
 
   &:is(h6) {
     z-index: 1;
-    color: color.adjust($purple, $lightness: 24%);
+    color: color.adjust($purple, $lightness: 30%);
   }
 
   &:first-of-type {

@@ -9,7 +9,7 @@
       <span class="title">Github Saved Filters</span>
       <span class="version">v2.0.0</span>
       <span class="links">
-        <span v-if="hasNewChanges" class="link link--new-changes">New Changes!</span>
+        <span v-if="hasNewChanges" class="link link--new-changes">New!</span>
         <span v-else class="link link--options">Options</span>
         <span class="spacer">|</span>
         <span class="link link--docs">Docs</span>

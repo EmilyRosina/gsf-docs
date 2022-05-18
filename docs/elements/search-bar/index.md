@@ -1,13 +1,14 @@
 ---
 title: Search Bar
 sidebarDepth: 1
+next: false
 ---
 
 # Search Bar
 
 ## Icons
 
-:::: simple-table
+::: simple-table
 
 |Actions                                      |Tags                                  |
 |:--------------------------------------------|:-------------------------------------|
@@ -15,7 +16,7 @@ sidebarDepth: 1
 |<GsfIcon icon="heart"/> saved filter         |<GsfIcon icon="repo"/> Repo filter    |
 |<GsfIcon icon="lock"/> _cannot save_         |                                      |
 
-::::
+:::
 
 ## Unsaved filters
 
@@ -24,9 +25,7 @@ sidebarDepth: 1
 - No filter chip, _always show the query_.
 - Empty heart icon to the far right.
 
-<GsfSearchBar
-  variant="new"
-  width="100%"/>
+<GsfSearchBar variant="new"/>
 
 
 ## Saved filters
@@ -39,9 +38,7 @@ sidebarDepth: 1
   <br>_Clicking the input will reveal the query again (i.e. whilst it's active)._
 - Lock icon to signify this filter/query is reserved.
 
-<GsfSearchBar
-  variant="default"
-  width="100%"/>
+<GsfSearchBar variant="default"/>
 
 ### Global filter
 > Global filters will appear on every repo and on the global issues/pulls pages.
@@ -50,9 +47,7 @@ sidebarDepth: 1
   <br>_Clicking the input will reveal the query again (i.e. whilst it's active)._
 - Filled heart icon to signify this filter/query is saved.
 
-<GsfSearchBar
-  variant="global"
-  width="100%"/>
+<GsfSearchBar variant="global"/>
 
 ### Repo filter
 > Repo filters will only appear on the repo they were created on/imported to.
@@ -61,6 +56,4 @@ sidebarDepth: 1
   <br>_Clicking the input will reveal the query again (i.e. whilst it's active)._
 - Filled heart icon to signify this filter/query is saved.
 
-<GsfSearchBar
-  variant="repo"
-  width="100%"/>
+<GsfSearchBar variant="repo"/>

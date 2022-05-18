@@ -144,6 +144,7 @@ const links =[
 
       &__link a {
         font-size: 16px;
+        line-height: 2;
       }
 
       &__spacer {
