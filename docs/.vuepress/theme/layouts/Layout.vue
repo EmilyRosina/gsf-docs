@@ -20,10 +20,9 @@ const links =[
       <router-link
         :to="$route.path.includes('home') ? '/' : '/home'"
         class="sidebar-header-logo">
-        <img
-          class="sidebar-header-logo__image"
-          src="/logo.png"
-          alt="Github Saved Filters">
+        <GsfLogo
+          size="60"
+          class="sidebar-header-logo__image"/>
         <span class="sidebar-header-logo__text">
           <span class="sidebar-header-logo__title">Github Saved Filters</span>
           <span class="sidebar-header-logo__subtitle">Docs</span>
@@ -78,11 +77,6 @@ const links =[
   align-items: center;
   order: -1;
   padding: 40px 30px;
-
-  &__image {
-    width: 60px;
-    height: 60px;
-  }
 
   &__text {
     display: flex;

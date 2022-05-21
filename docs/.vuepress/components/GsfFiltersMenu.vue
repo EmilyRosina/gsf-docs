@@ -4,38 +4,41 @@
       showcasing: !!showcase,
       [`showcasing--${showcase}`]: !!showcase,
       'show-queries': showQueries !== 'never',
-    }]"
-    :style="{ fontSize: `${fontSize}%` }">
+      'has-custom-search': search !== '',
+    }]">
     <div class="filters-menu__header">
-      <img src="/logo.png">
-      <span class="input">Search saved filters...</span>
+      <GsfLogo size="1.5em"/>
+      <span class="input">{{ search ? search : 'Search saved filters...' }}</span>
       <GsfIcon icon="gear"/>
     </div>
     <div v-if="showOptions" class="filters-menu__options">
       <span class="option">
         <span class="option__label">Match search on</span>
         <span class="option__items">
-          <span>Name</span>
-          <span>Query</span>
-          <span class="selected">Both</span>
+          <span class="option__item">Name</span>
+          <span class="option__item">Query</span>
+          <span class="option__item selected">Both</span>
         </span>
       </span>
       <span class="option">
         <span class="option__label">Show query</span>
         <span class="option__items">
-          <span class="show-queries-on-hover">On hover</span>
-          <span class="show-queries-always">Always</span>
-          <span class="show-queries-never">Never</span>
+          <span class="option__item show-queries-on-hover">On hover</span>
+          <span class="option__item show-queries-always">Always</span>
+          <span class="option__item show-queries-never">Never</span>
         </span>
       </span>
     </div>
 
     <div v-if="!hidePinned" class="filters-menu__pinned">
-      <div class="filter pinned-filter">
+      <div
+        v-for="{ name, query } of pinnedFilters"
+        :key="`pinnedFilter:${name}`"
+        class="filter pinned-filter">
         <GsfIcon icon="pin"/>
         <GsfIcon icon="repo"/>
-        <span class="name">Bugs</span>
-        <span class="query">is:open label:bug</span>
+        <span class="name">{{ name }}</span>
+        <span class="query">{{ query }}</span>
       </div>
     </div>
 
@@ -85,7 +88,6 @@
     <div class="filters-menu__default">
       <header>
         <span class="title">Default Filters</span>
-        <span class="count">{{ defaultFilters.length }}</span>
       </header>
       <span
         v-for="{ name, query, selected } of defaultFilters"
@@ -139,7 +141,15 @@ export default {
       type: String,
       default: 'never',
     },
+    matchOn: {
+      type: String,
+      default: 'both',
+    },
     showcase: {
+      type: String,
+      default: '',
+    },
+    search: {
       type: String,
       default: '',
     },
@@ -147,12 +157,17 @@ export default {
       type: Boolean,
       default: false,
     },
-    fontSize: {
-      type: [Number, String],
-      default: 110,
-    },
   },
   computed: {
+    pinnedFilters () {
+      const filters = [
+        {
+          name: 'Bugs',
+          query: 'is:open label:bug',
+        },
+      ].filter(this.matchesSearch)
+      return filters
+    },
     globalFilters () {
       const filters = [
         {
@@ -163,7 +178,7 @@ export default {
           name: 'My closed items this month',
           query: 'assignee:@me closed:>2022-05-01 closed:<2022-06-01',
         },
-      ]
+      ].filter(this.matchesSearch)
       return this.mini ? filters.slice(0, 2) : filters
     },
     repoFilters () {
@@ -181,7 +196,7 @@ export default {
           name: 'Opened this week',
           query: 'is:issue is:open created:>2022-05-16',
         },
-      ]
+      ].filter(this.matchesSearch)
       return this.mini ? filters.slice(0, 2) : filters
     },
     defaultFilters () {
@@ -198,8 +213,17 @@ export default {
           name: 'Open issues and pull requests',
           query: 'is:open',
         },
-      ]
+      ].filter(this.matchesSearch)
       return this.mini ? filters.slice(0, 2) : filters
+    }
+  },
+  methods: {
+    matchesSearch ({ name, query }) {
+      return this.search === '' || {
+        both: `${name}  ${query}`.includes(this.search),
+        name: name.includes(this.search),
+        query: query.includes(this.search),
+      }[this.matchOn]
     }
   }
 }
@@ -232,12 +256,12 @@ html.dark {
 
 .filters-menu {
   width: 20em;
-  max-width: 20em;
   height: auto;
   border: 1px solid var(--gsf-filters-menu-border);
   border-radius: 0.5em;
   background: var(--gsf-filters-menu-bg);
   color: var(--c-text);
+  font-size: 110%;
   user-select: none;
 
   &__header {
@@ -245,10 +269,6 @@ html.dark {
     align-items: center;
     justify-content: space-between;
     padding: 0.3em 0.5em;
-
-    img {
-      width: 1.5em;
-    }
 
     .input {
       display: flex;
@@ -285,7 +305,7 @@ html.dark {
         border: 1px solid var(--gsf-filters-menu-highlight);
         border-radius: 0.4em;
 
-        > * {
+        .option__item {
           padding: 0.1em 0.5em;
           cursor: pointer;
 
@@ -431,7 +451,33 @@ html.dark {
   &.showcasing {
     $dull-amount: 0.2;
 
-    &--links .filters-menu {
+    &--links {
+      .filters-menu {
+        &__header,
+        &__options,
+        &__pinned,
+        &__global,
+        &__repo,
+        &__default,
+        &__link--docs {
+          opacity: $dull-amount;
+          cursor: default;
+          user-select: none;
+
+          * {
+            cursor: default;
+            user-select: none;
+          }
+        }
+
+        &__link--backup {
+          border-bottom: 1px solid var(--gsf-filters-menu-border);
+        }
+      }
+    }
+
+    &--backup .filters-menu,
+    &--import .filters-menu {
       &__header,
       &__options,
       &__pinned,
@@ -439,41 +485,46 @@ html.dark {
       &__repo,
       &__default {
         opacity: $dull-amount;
-      }
-    }
-
-    &--import .filters-menu {
-      &__header,
-      &__options,
-      &__pinned,
-      &__global,
-      &__repo,
-      &__default,
-      &__link:not(.filters-menu__link--import) {
-        opacity: $dull-amount;
         cursor: default;
         user-select: none;
-      }
 
-      &__link--import {
-        border-bottom: 1px solid var(--gsf-filters-menu-border);
+        * {
+          cursor: default;
+          user-select: none;
+        }
       }
     }
 
     &--backup .filters-menu {
-      &__header,
-      &__options,
-      &__pinned,
-      &__global,
-      &__repo,
-      &__default,
       &__link:not(.filters-menu__link--backup) {
         opacity: $dull-amount;
         cursor: default;
         user-select: none;
+
+        * {
+          cursor: default;
+          user-select: none;
+        }
       }
 
       &__link--backup {
+        border-bottom: 1px solid var(--gsf-filters-menu-border);
+      }
+    }
+
+    &--import .filters-menu {
+      &__link:not(.filters-menu__link--import) {
+        opacity: $dull-amount;
+        cursor: default;
+        user-select: none;
+
+        * {
+          cursor: default;
+          user-select: none;
+        }
+      }
+
+      &__link--import {
         border-bottom: 1px solid var(--gsf-filters-menu-border);
       }
     }
@@ -510,6 +561,24 @@ html.dark {
     .option .show-queries-on-hover {
       @extend %selected-query-option;
     }
+  }
+
+  &.has-custom-search {
+    .input {
+      color: var(--c-text);
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .filters-menu {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .filters-menu {
+    font-size: 80%;
   }
 }
 </style>

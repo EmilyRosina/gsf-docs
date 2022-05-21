@@ -33,7 +33,7 @@ export default {
 @import "@styles/vars";
 
 .button-group {
-  display: flex;
+  display: inline-flex;
 
   &__btn {
     margin-left: -1px;

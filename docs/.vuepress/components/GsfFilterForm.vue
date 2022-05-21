@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="filter-form"
-    :style="{ fontSize: `${fontSize}%` }">
+  <div class="filter-form">
     <div class="filter-form__header">
-      <img src="/logo.png">
+      <GsfLogo size="1em"/>
       <span class="title">{{ isNew ? 'New' : 'Edit' }} filter</span>
       <GsfIcon icon="close"/>
     </div>
@@ -12,8 +10,8 @@
       <div class="form-item name">
         <label>Name</label>
         <span class="input input--with-counter">
-          {{ isNew ? '' : name }}
-          <span class="counter">{{ 30 - (isNew ? '' : name).length }}/30</span>
+          {{ theName }}
+          <span class="counter">{{ 30 - theName.length }}/30</span>
         </span>
       </div>
       <div class="form-item query">
@@ -26,9 +24,25 @@
       <label>Filter scope</label>
       <GsfButtonGroup v-if="!isGlobal" :options="['Global', 'This repo']"/>
       <span class="buttons">
-        <GsfButton v-if="!isNew" lg outline theme="error">Delete</GsfButton>
-        <GsfButton lg outline>Reset</GsfButton>
-        <GsfButton lg theme="success">Save</GsfButton>
+        <GsfButton
+          v-if="!isNew"
+          lg
+          outline
+          theme="error">
+          Delete
+        </GsfButton>
+        <GsfButton
+          lg
+          outline
+          :disabled="!canSave">
+          Reset
+        </GsfButton>
+        <GsfButton
+          lg
+          theme="success"
+          :disabled="!canSave">
+          Save
+        </GsfButton>
       </span>
     </div>
   </div>
@@ -48,16 +62,22 @@ export default {
     },
     name: {
       type: String,
-      default: 'Bugs'
+      default: ''
     },
     query: {
       type: String,
       default: 'is:open is:issue label:bug'
     },
-    fontSize: {
-      type: [Number, String],
-      default: 120,
+  },
+  computed: {
+    canSave () {
+      return !!this.theName && !!this.query
     },
+    theName () {
+      return this.isNew && !this.name
+        ? ''
+        : this.name || 'Bugs'
+    }
   }
 }
 </script>
@@ -75,8 +95,8 @@ export default {
 }
 
 html.dark {
-  --gsf-filter-form-bg: #2c323a;
-  --gsf-filter-form-input: #1d1d1d;
+  --gsf-filter-form-bg: #2b2b2b;
+  --gsf-filter-form-input: #111;
   --gsf-filter-form-border: #586069;
   --gsf-filter-form-highlight: #bababa;
   --gsf-filter-form-selected: #373e47;
@@ -88,12 +108,15 @@ html.dark {
 @import "@styles/vars";
 
 .filter-form {
-  max-width: 28em;
-  margin: auto;
+  display: inline-block;
+  min-width: 18em;
+  margin: 0 auto;
   border: 1px solid var(--gsf-filter-form-border);
   border-radius: 0 0 0.3em 0.3em;
   background: var(--gsf-filter-form-bg);
   color: var(--c-text);
+  font-size: 130%;
+  line-height: 1.2;
 
   label {
     margin-bottom: 0.15em;
@@ -108,12 +131,11 @@ html.dark {
 
   &__header {
     display: flex;
+    align-items: center;
     padding: 0.35em 0.35em 0.25em 0.75em;
     border-bottom: 1px solid var(--gsf-filter-form-border);
 
-    img {
-      width: 1em;
-      height: 1em;
+    .gsf-logo {
       margin-right: 0.5em;
     }
 
@@ -188,7 +210,26 @@ html.dark {
 
     .buttons {
       grid-area: buttons;
+      margin-left: 1em;
     }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .filter-form {
+    font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .filter-form {
+    font-size: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .filter-form {
+    font-size: 90%;
   }
 }
 </style>

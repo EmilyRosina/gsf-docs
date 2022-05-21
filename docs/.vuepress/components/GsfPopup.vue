@@ -5,7 +5,7 @@
       [`showcasing--${showcase}`]: !!showcase,
     }]">
     <header class="gsf-popup__header">
-      <img src="/logo.png">
+      <GsfLogo size="1.3em"/>
       <span class="title">Github Saved Filters</span>
       <span class="version">v2.0.0</span>
       <span class="links">
@@ -76,32 +76,33 @@ export default {
 .gsf-popup {
   display: flex;
   flex-direction: column;
-  width: 420px;
-  min-width: 420px;
-  margin: auto;
+  min-width: fit-content;
+  margin: 0 auto;
   padding: 1em;
   border: 2px solid transparent;
   border-image: $gradient-border;
-  background: #333;
+  background: var(--c-bg-lightest);
+  font-size: 100%;
 
   header {
     display: flex;
     align-items: center;
     margin-bottom: 1.5em;
 
-    img {
-      height: 1.3em;
+    .gsf-logo {
       margin-right: 0.4em;
     }
 
     .title {
-      color: #fff;
+      color: var(--gsf-text-stark);
       font-size: 1.05em;
+      white-space: nowrap;
     }
 
     .version {
       align-self: flex-start;
       margin-top: -0.2em;
+      margin-right: 0.5em;
       color: #567492;
       font-family: monospace;
       font-size: 0.9em;
@@ -138,7 +139,7 @@ export default {
 
       .spacer {
         margin-left: 0.25em;
-        color: #fff;
+        color: var(--c-text);
         font-size: 1.25em;
       }
 
@@ -179,7 +180,7 @@ export default {
 
       &__value {
         padding: 0.35em 1em;
-        color: #fff;
+        color: var(--c-text);
         font-size: 0.9em;
       }
 
@@ -267,6 +268,24 @@ export default {
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .gsf-popup {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gsf-popup {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .gsf-popup {
+    font-size: 70%;
   }
 }
 </style>

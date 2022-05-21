@@ -1,7 +1,7 @@
 <template>
   <div class="dates-menu">
     <div class="dates-menu__header">
-      <img src="/logo.png">
+      <GsfLogo/>
       <span>Apply dates to your query</span>
       <GsfIcon
         icon="close"
@@ -11,11 +11,13 @@
       :empty="isEmpty"
       class="dates-menu__row dates-menu__row--example">
       <span class="title">archived</span>
-      <span
+      <GsfButton
+        theme="stark"
         :disabled="!isValid"
-        class="button button--add">
+        outline
+        sm>
         Add
-      </span>
+      </GsfButton>
       <template v-if="isRange">
         <span
           aria-label="from"
@@ -51,27 +53,32 @@
     </div>
     <div class="dates-menu__row">
       <span>closed</span>
-      <span class="button button--add">Add</span>
+      <GsfButton outline sm theme="stark">Add</GsfButton>
     </div>
     <div class="dates-menu__row">
       <span>created</span>
-      <span class="button button--add">Add</span>
+      <GsfButton outline sm theme="stark">Add</GsfButton>
     </div>
     <div class="dates-menu__row">
       <span>merged</span>
-      <span class="button button--add">Add</span>
+      <GsfButton outline sm theme="stark">Add</GsfButton>
     </div>
     <div class="dates-menu__row">
       <span>updated</span>
-      <span class="button button--add">Add</span>
+      <GsfButton outline sm theme="stark">Add</GsfButton>
     </div>
     <div class="dates-menu__footer">
-      <span class="button button--reset">Reset</span>
-      <span
-        :disabled="!isValid"
-        class="button button--apply">
+      <GsfButton
+        outline
+        theme="stark"
+        :disabled="isEmpty || hasNoChanges">
+        Reset
+      </GsfButton>
+      <GsfButton
+        theme="success"
+        :disabled="!isValid || hasNoChanges">
         Apply
-      </span>
+      </GsfButton>
     </div>
   </div>
 </template>
@@ -95,6 +102,10 @@ export default {
     populatedDates: {
       type: Object,
       default: () => [],
+    },
+    hasNoChanges: {
+      type: Boolean,
+      default: false,
     }
   },
   computed: {
@@ -142,41 +153,9 @@ html.dark {
   user-select: none;
 }
 
-.button,
 .dates-menu__header .gsf-close-icon,
 .dates-menu__row .gsf-icon {
   cursor: pointer;
-}
-
-.button {
-  padding: 4px 10px;
-  border: 1px solid var(--gsf-dates-menu-button-outline);
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 400;
-
-  + .button {
-    margin-left: 4px;
-  }
-
-  &--apply {
-    border: none;
-    background: $success;
-    color: #fff;
-
-    &[disabled="true"] {
-      background: $disabled;
-      cursor: default;
-    }
-  }
-
-  &--add {
-    &[disabled="true"] {
-      border-color: $disabled;
-      color: $disabled;
-      cursor: default;
-    }
-  }
 }
 
 .dates-menu {
@@ -195,8 +174,7 @@ html.dark {
     font-size: 0.85em;
     font-weight: 600;
 
-    img {
-      height: 1.1em;
+    .gsf-logo {
       margin-right: 0.5em;
     }
 
@@ -216,7 +194,7 @@ html.dark {
     font-size: 0.85em;
     font-weight: 600;
 
-    .button {
+    .gsf-button {
       padding: 0.25em 0.5em;
       font-size: 0.75em;
       font-weight: 600;
@@ -234,7 +212,7 @@ html.dark {
         align-self: flex-start;
       }
 
-      .button {
+      .gsf-button {
         grid-area: button;
         justify-self: flex-end;
         align-self: flex-start;
@@ -248,6 +226,7 @@ html.dark {
         color: var(--gsf-dates-menu-input-color);
         font-size: 0.8em;
         font-weight: 500;
+        cursor: pointer;
 
         &::before {
           content: attr(aria-label);

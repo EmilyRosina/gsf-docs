@@ -1,11 +1,10 @@
 <template>
   <div
-    :class="['gsf-button', {
+    :class="[`gsf-button gsf-button--${theme}`, {
       'gsf-button--outline': outline,
-      'gsf-button--error': theme === 'error',
-      'gsf-button--success': theme === 'success',
       'gsf-button--sm': sm,
       'gsf-button--lg': lg,
+      'gsf-button--rounded': rounded,
     }]"
     :bind="$attrs">
     <slot/>
@@ -13,7 +12,7 @@
 </template>
 
 <script>
-const themes = ['grey', 'success', 'error']
+const themes = ['grey', 'stark', 'success', 'error']
 
 export default {
   name: 'GsfButton',
@@ -24,6 +23,10 @@ export default {
       default: 'grey',
     },
     outline: {
+      type: Boolean,
+      default: false,
+    },
+    rounded: {
       type: Boolean,
       default: false,
     },
@@ -50,7 +53,7 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25em 0.75em;
+  padding: 0.5em 0.75em;
   transition: 0.125s ease-in;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -58,6 +61,7 @@ export default {
   background: $grey-mid;
   color: white;
   font-size: 12px;
+  line-height: 1;
   cursor: pointer;
 
   + :deep(.gsf-button) {
@@ -72,6 +76,7 @@ export default {
 
   &--success,
   &--error,
+  &--stark,
   &--outline {
     @extend .gsf-button;
   }
@@ -96,7 +101,17 @@ export default {
     }
   }
 
-  &[disabled] {
+  &--stark {
+    background: var(--gsf-text-stark);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: color.adjust($grey-mid, $lightness: $btn-hover-darken);
+    }
+  }
+
+  &[disabled="true"] {
     opacity: 0.5;
     background: $disabled;
     cursor: default;
@@ -113,7 +128,7 @@ export default {
       background: rgba($grey-mid, $btn-hover-opacity);
     }
 
-    &[disabled] {
+    &[disabled="true"] {
       background: none;
     }
 
@@ -138,7 +153,17 @@ export default {
         }
       }
 
-      &[disabled] {
+      &--stark {
+        color: var(--gsf-text-stark) !important;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background: rgba($grey-mid, $btn-hover-opacity);
+        }
+      }
+
+      &[disabled="true"] {
         background: none;
         color: $disabled;
       }
@@ -146,13 +171,17 @@ export default {
   }
 
   &--sm {
-    padding: 0.1em 0.65em;
+    padding: 0.25em 0.5em;
     font-size: 0.75em;
   }
 
   &--lg {
     padding: 0.35em 0.75em;
     font-size: 0.75em;
+  }
+
+  &--rounded {
+    border-radius: 1em;
   }
 }
 </style>

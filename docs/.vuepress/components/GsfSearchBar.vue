@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="search-bar"
-    :style="{ fontSize: `${fontSize}%` }">
+  <div class="search-bar">
     <span class="search-bar__button">
       Filters
       <GsfIcon icon="caretFilled"/>
@@ -41,10 +39,6 @@ export default {
     query: {
       type: String,
       default: 'is:open is:issue label:bug',
-    },
-    fontSize: {
-      type: [Number, String],
-      default: 140,
     },
   },
   computed: {
@@ -95,6 +89,7 @@ html.dark {
 .search-bar {
   display: flex;
   width: 100%;
+  font-size: 140%;
   line-height: 1.7;
 
   &__button,
@@ -157,6 +152,30 @@ html.dark {
         cursor: pointer;
       }
     }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .search-bar {
+    font-size: 130%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .search-bar {
+    font-size: 120%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .search-bar {
+    font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-bar {
+    font-size: 90%;
   }
 }
 </style>
