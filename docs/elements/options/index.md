@@ -35,6 +35,7 @@ Where you can read about, enable and disable beta features.
 
 ### <GsfIcon icon="rocket" size="24"/> Roadmap
 
-A link that takes you to [FeatureBase](https://gsf.featurebase.app/roadmap).
+A link that takes you to a dedicated [Github project](https://github.com/users/EmilyRosina/projects/2), which I will use as a roadmap.
 - Shows the status of various things being worked on or considered to be worked on.
-- You can raise ideas and bugs here if you wish, or via the feedback [Github Discussions](https://github.com/EmilyRosina/gsf-docs/discussions).
+- You can still raise feedback, ideas and bugs via [Github Discussions](https://github.com/EmilyRosina/gsf-docs/discussions).
+- If agreed to work on, selected topics will be added from **Discussions** to the **Roadmap**.

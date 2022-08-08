@@ -4,7 +4,7 @@ import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue'
 const url = {
   donateKOFI: 'https://ko-fi.com/auroraskye',
   feedback: 'https://github.com/EmilyRosina/gsf.docs/discussions',
-  roadmap: 'https://gsf.featurebase.app/roadmap',
+  roadmap: 'https://github.com/users/EmilyRosina/projects/2',
 }
 
 const links =[
